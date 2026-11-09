@@ -1,0 +1,23 @@
+{
+  "name": "historieta-bitcoin-nostr",
+  "version": "1.0.0",
+  "description": "La Historieta de Bitcoin, edición infinita sobre Nostr",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node dev/servidor.mjs",
+    "extraer": "python3 scripts/extraer.py",
+    "genesis": "node scripts/publicar-genesis.mjs",
+    "reenviar": "node scripts/reenviar-genesis.mjs"
+  },
+  "author": "seba.dev",
+  "license": "MIT",
+  "dependencies": {
+    "nostr-tools": "^2.26.0",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "ws": "^8.22.1"
+  },
+  "type": "module"
+}

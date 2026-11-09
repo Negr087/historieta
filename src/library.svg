@@ -1,0 +1,172 @@
+<pattern id="dots" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+      <circle cx="4.5" cy="4.5" r="1.5" fill="#1b1838" fill-opacity=".14"/>
+    </pattern>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#F7931A" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#F7931A" stop-opacity="0"/>
+    </radialGradient>
+
+    <g id="base">
+      <rect width="400" height="300" style="fill:var(--bg)"/>
+      <rect width="400" height="300" fill="url(#dots)"/>
+      <rect y="262" width="400" height="38" fill="#1b1838" fill-opacity=".1"/>
+    </g>
+
+    <!-- Símbolo ₿ dibujado a mano -->
+    <g id="btc" transform="translate(-5.5 0)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-8 -24 V24"/>
+      <path d="M-8 -24 H4 A11 11 0 0 1 4 -2 H-8"/>
+      <path d="M-8 -2 H6 A13 13 0 0 1 6 24 H-8"/>
+      <path d="M-3 -32 V-24 M5 -32 V-24 M-3 24 V32 M5 24 V32"/>
+    </g>
+    <g id="btc-w">
+      <use href="#btc" stroke="#1b1838" stroke-width="12"/>
+      <use href="#btc" stroke="#ffffff" stroke-width="7"/>
+    </g>
+
+    <!-- Sat: piezas -->
+    <g id="sat-legs">
+      <path d="M92 164 V206 M118 164 V206" stroke="#1b1838" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <g fill="#2B59C3" stroke="#1b1838" stroke-width="3.5" stroke-linejoin="round">
+        <path d="M74 216 Q74 202 90 202 Q100 202 104 212 L104 216 Z"/>
+        <path d="M136 216 Q136 202 120 202 Q110 202 106 212 L106 216 Z"/>
+      </g>
+      <g fill="#ffffff" stroke="#1b1838" stroke-width="3">
+        <rect x="72" y="214" width="34" height="7" rx="3.5"/>
+        <rect x="104" y="214" width="34" height="7" rx="3.5"/>
+      </g>
+    </g>
+    <g id="sat-coin">
+      <circle cx="105" cy="100" r="68" fill="#F7931A" stroke="#1b1838" stroke-width="6"/>
+      <circle cx="105" cy="100" r="57" fill="#FFA82E" stroke="#C96F00" stroke-width="3"/>
+      <path d="M64 70 A51 51 0 0 1 88 52" fill="none" stroke="#ffffff" stroke-opacity=".65" stroke-width="5" stroke-linecap="round"/>
+      <g transform="translate(105 68) scale(.62)"><use href="#btc-w"/></g>
+    </g>
+
+    <!-- Sat: brazos -->
+    <g id="arms-thumb" fill="none" stroke="#1b1838" stroke-width="6" stroke-linecap="round">
+      <path d="M38 108 Q14 122 22 150"/>
+      <path d="M172 108 Q198 112 194 86"/>
+      <g fill="#ffffff" stroke-width="3.5">
+        <circle cx="22" cy="156" r="12"/>
+        <ellipse cx="194" cy="66" rx="5.5" ry="10"/>
+        <circle cx="194" cy="82" r="12"/>
+      </g>
+    </g>
+    <g id="arms-up" fill="none" stroke="#1b1838" stroke-width="6" stroke-linecap="round">
+      <path d="M38 104 Q10 96 18 64"/>
+      <path d="M172 104 Q200 96 192 64"/>
+      <g fill="#ffffff" stroke-width="3.5"><circle cx="18" cy="56" r="12"/><circle cx="192" cy="56" r="12"/></g>
+    </g>
+    <g id="arms-think" fill="none" stroke="#1b1838" stroke-width="6" stroke-linecap="round">
+      <path d="M38 112 Q12 124 30 146"/>
+      <path d="M172 100 Q202 96 188 68"/>
+      <g fill="#ffffff" stroke-width="3.5"><circle cx="32" cy="152" r="12"/><circle cx="186" cy="60" r="12"/></g>
+    </g>
+    <g id="arms-down" fill="none" stroke="#1b1838" stroke-width="6" stroke-linecap="round">
+      <path d="M38 112 Q16 130 20 154"/>
+      <path d="M172 112 Q194 130 190 154"/>
+      <g fill="#ffffff" stroke-width="3.5"><circle cx="20" cy="160" r="12"/><circle cx="190" cy="160" r="12"/></g>
+    </g>
+
+    <!-- Sat: caras -->
+    <g id="face-happy" stroke="#1b1838" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cx="86" cy="111" rx="9.5" ry="11.5" fill="#fff"/>
+      <ellipse cx="124" cy="111" rx="9.5" ry="11.5" fill="#fff"/>
+      <circle cx="88" cy="113" r="5.2" fill="#1b1838" stroke="none"/>
+      <circle cx="126" cy="113" r="5.2" fill="#1b1838" stroke="none"/>
+      <circle cx="90" cy="110.5" r="1.8" fill="#fff" stroke="none"/>
+      <circle cx="128" cy="110.5" r="1.8" fill="#fff" stroke="none"/>
+      <path d="M73 92 Q82 86 92 91 M118 91 Q128 86 137 92" fill="none"/>
+      <path d="M88 130 Q105 153 122 130 Z" fill="#6b1a2a"/>
+      <ellipse cx="105" cy="139" rx="7" ry="3.4" fill="#ff8fa3" stroke="none"/>
+    </g>
+    <g id="face-surprised" stroke="#1b1838" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cx="86" cy="111" rx="10.5" ry="13" fill="#fff"/>
+      <ellipse cx="124" cy="111" rx="10.5" ry="13" fill="#fff"/>
+      <circle cx="86" cy="112" r="3.4" fill="#1b1838" stroke="none"/>
+      <circle cx="124" cy="112" r="3.4" fill="#1b1838" stroke="none"/>
+      <path d="M72 87 Q82 80 92 86 M118 86 Q128 80 138 87" fill="none"/>
+      <ellipse cx="105" cy="137" rx="7.5" ry="10" fill="#6b1a2a"/>
+    </g>
+    <g id="face-think" stroke="#1b1838" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cx="86" cy="111" rx="9.5" ry="11.5" fill="#fff"/>
+      <ellipse cx="124" cy="111" rx="9.5" ry="11.5" fill="#fff"/>
+      <circle cx="90" cy="107" r="5" fill="#1b1838" stroke="none"/>
+      <circle cx="128" cy="107" r="5" fill="#1b1838" stroke="none"/>
+      <circle cx="92" cy="104.8" r="1.7" fill="#fff" stroke="none"/>
+      <circle cx="130" cy="104.8" r="1.7" fill="#fff" stroke="none"/>
+      <path d="M73 96 Q82 93 92 95 M118 89 Q128 82 138 88" fill="none"/>
+      <path d="M93 137 Q99 131 105 136 T119 135" fill="none"/>
+    </g>
+    <g id="face-worry" stroke="#1b1838" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cx="86" cy="111" rx="9.5" ry="11.5" fill="#fff"/>
+      <ellipse cx="124" cy="111" rx="9.5" ry="11.5" fill="#fff"/>
+      <circle cx="84" cy="114" r="4.6" fill="#1b1838" stroke="none"/>
+      <circle cx="122" cy="114" r="4.6" fill="#1b1838" stroke="none"/>
+      <circle cx="82.5" cy="112" r="1.6" fill="#fff" stroke="none"/>
+      <circle cx="120.5" cy="112" r="1.6" fill="#fff" stroke="none"/>
+      <path d="M73 97 L92 90 M118 90 L137 97" fill="none"/>
+      <path d="M92 139 Q105 127 118 139" fill="none"/>
+      <path d="M148 78 Q155 88 148 95 Q141 88 148 78 Z" fill="#7fd0ff" stroke-width="2.5"/>
+    </g>
+
+    <symbol id="sat-happy" viewBox="0 0 210 235"><use href="#sat-legs"/><use href="#arms-thumb"/><use href="#sat-coin"/><use href="#face-happy"/></symbol>
+    <symbol id="sat-surprised" viewBox="0 0 210 235"><use href="#sat-legs"/><use href="#arms-up"/><use href="#sat-coin"/><use href="#face-surprised"/></symbol>
+    <symbol id="sat-think" viewBox="0 0 210 235"><use href="#sat-legs"/><use href="#arms-think"/><use href="#sat-coin"/><use href="#face-think"/></symbol>
+    <symbol id="sat-worry" viewBox="0 0 210 235"><use href="#sat-legs"/><use href="#arms-down"/><use href="#sat-coin"/><use href="#face-worry"/></symbol>
+
+    <!-- Objetos de escena -->
+    <symbol id="o-coin" viewBox="0 0 60 60">
+      <circle cx="30" cy="30" r="26" fill="#F7931A" stroke="#1b1838" stroke-width="4"/>
+      <circle cx="30" cy="30" r="20" fill="#FFA82E" stroke="#C96F00" stroke-width="2"/>
+      <g transform="translate(30 30) scale(.4)"><use href="#btc-w"/></g>
+    </symbol>
+    <symbol id="o-bank" viewBox="0 0 140 140" stroke="#1b1838" stroke-linejoin="round">
+      <path d="M8 54 L70 14 L132 54 Z" fill="#2B59C3" stroke-width="4"/>
+      <circle cx="70" cy="38" r="6" fill="#FFD84D" stroke-width="3"/>
+      <rect x="14" y="56" width="112" height="10" fill="#fff" stroke-width="3.5"/>
+      <g fill="#fff" stroke-width="3.5">
+        <rect x="22" y="68" width="14" height="44"/><rect x="48" y="68" width="14" height="44"/>
+        <rect x="78" y="68" width="14" height="44"/><rect x="104" y="68" width="14" height="44"/>
+        <rect x="8" y="112" width="124" height="10"/><rect x="2" y="122" width="136" height="12"/>
+      </g>
+    </symbol>
+    <symbol id="o-pc" viewBox="0 0 140 140" stroke="#1b1838" stroke-linejoin="round">
+      <rect x="22" y="18" width="96" height="76" rx="10" fill="#D9D6EA" stroke-width="4"/>
+      <rect x="32" y="28" width="76" height="54" rx="4" fill="#12112a" stroke-width="3"/>
+      <text x="70" y="64" text-anchor="middle" font-family="monospace" font-size="24" fill="#7CFFB2" stroke="none">&gt;_</text>
+      <rect x="50" y="94" width="40" height="10" fill="#D9D6EA" stroke-width="3.5"/>
+      <rect x="34" y="104" width="72" height="10" rx="4" fill="#D9D6EA" stroke-width="3.5"/>
+      <rect x="22" y="118" width="96" height="16" rx="4" fill="#fff" stroke-width="3.5"/>
+    </symbol>
+    <symbol id="o-env" viewBox="0 0 140 110" stroke="#1b1838" stroke-linejoin="round" stroke-width="4">
+      <rect x="6" y="14" width="128" height="88" rx="8" fill="#fff"/>
+      <path d="M8 20 L70 66 L132 20" fill="#EDEBFF"/>
+    </symbol>
+    <symbol id="o-person" viewBox="0 0 60 100" stroke="#1b1838" stroke-linejoin="round" stroke-width="4">
+      <path d="M4 100 V62 Q4 42 30 42 Q56 42 56 62 V100 Z" fill="#2B59C3"/>
+      <circle cx="30" cy="24" r="16" fill="#9A96C8"/>
+      <path d="M15 21 H45 V29 Q45 33 41 33 H34 Q31 33 30 29 Q29 33 26 33 H19 Q15 33 15 29 Z" fill="#1b1838" stroke="none"/>
+    </symbol>
+    <symbol id="o-piece" viewBox="0 0 72 70">
+      <path d="M6 14 H24 A8 8 0 1 1 40 14 H58 V30 A8 8 0 1 1 58 46 V64 H6 Z" fill="currentColor" stroke="#1b1838" stroke-width="4" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="o-hourglass" viewBox="0 0 80 90" stroke="#1b1838" stroke-linejoin="round">
+      <path d="M16 8 H64 L45 44 L64 80 H16 L35 44 Z" fill="#fff" stroke-width="4"/>
+      <path d="M26 76 H54 L40 58 Z" fill="#FFC941" stroke="none"/>
+      <rect x="10" y="3" width="60" height="8" rx="3" fill="#2B59C3" stroke-width="3.5"/>
+      <rect x="10" y="79" width="60" height="8" rx="3" fill="#2B59C3" stroke-width="3.5"/>
+    </symbol>
+    <symbol id="o-kiosk" viewBox="0 0 90 100" stroke="#1b1838" stroke-linejoin="round">
+      <rect x="10" y="30" width="70" height="66" fill="#fff" stroke-width="4"/>
+      <rect x="10" y="60" width="70" height="12" fill="#FFD84D" stroke-width="3.5"/>
+      <path d="M4 32 L10 6 H80 L86 32 Z" fill="#E5484D" stroke-width="4"/>
+      <path d="M27 10 L25.5 29 M45 10 V29 M63 10 L64.5 29" stroke="#fff" stroke-width="7" stroke-linecap="butt"/>
+    </symbol>
+    <symbol id="o-hood" viewBox="0 0 60 100" stroke="#1b1838" stroke-linejoin="round" stroke-width="4">
+      <path d="M4 100 V64 Q4 42 30 42 Q56 42 56 64 V100 Z" fill="#3B3768"/>
+      <path d="M11 34 Q11 6 30 6 Q49 6 49 34 Q49 48 30 50 Q11 48 11 34 Z" fill="#3B3768"/>
+      <ellipse cx="30" cy="30" rx="13" ry="15" fill="#12112a" stroke="none"/>
+      <text x="30" y="37" text-anchor="middle" font-family="Bowlby One, Arial Black, sans-serif" font-size="20" fill="#fff" stroke="none">?</text>
+    </symbol>
