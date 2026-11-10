@@ -12,6 +12,7 @@
 //                ["r", "<url>"]                         fuentes (una por tag)
 //                ["zap", "<pubkey>", "<relay>", "<peso>"]  reparto de zaps (NIP-57)
 //                ["alt", "..."]                         descripción para otros clientes (NIP-31)
+//                ["L", "ISO-639-1"], ["l", "<es|en>", "ISO-639-1"]  idioma (NIP-32; el génesis no lo lleva)
 //   kind 1985  Etiqueta de canon (NIP-32), firmada por un curador:
 //                ["L", "historieta-bitcoin"], ["l", "canon", "historieta-bitcoin"],
 //                ["e", "<id de la viñeta>"], ["k", "8333"]
@@ -60,19 +61,22 @@ export function contenidoVineta(v) {
   });
 }
 
-function textoAlt(v) {
+const PREFIJO_ALT = { es: 'Viñeta de La Historieta de Bitcoin', en: 'Panel from The Bitcoin Comic' };
+function textoAlt(v, idioma) {
   const e = [v.epigrafe?.b, v.epigrafe?.t].filter(Boolean).join(' ');
-  return `Viñeta de La Historieta de Bitcoin: ${e}`.slice(0, 280);
+  return `${PREFIJO_ALT[idioma] || PREFIJO_ALT.es}: ${e}`.slice(0, 280);
 }
 
 /** Plantilla (sin firmar) de una viñeta nueva. */
-export function plantillaVineta(v, { anterior, capitulo, fuentes = [], zaps = [], created_at }) {
+// `idioma` es opcional: el génesis se arma sin él para que sus ids no cambien.
+export function plantillaVineta(v, { anterior, capitulo, fuentes = [], zaps = [], created_at, idioma }) {
   const tags = [['t', TAG_T]];
   if (capitulo) tags.push(['capitulo', String(capitulo.n), capitulo.titulo || '']);
   if (anterior) tags.push(['e', anterior.id, anterior.relay || '', 'anterior']);
   for (const url of fuentes) if (url) tags.push(['r', url]);
   for (const z of zaps) tags.push(['zap', z.pubkey, z.relay || '', String(z.peso)]);
-  tags.push(['alt', textoAlt(v)]);
+  if (idioma) tags.push(['L', 'ISO-639-1'], ['l', idioma, 'ISO-639-1']);
+  tags.push(['alt', textoAlt(v, idioma)]);
   return {
     kind: KIND_VINETA,
     created_at: created_at ?? Math.floor(Date.now() / 1000),
@@ -149,6 +153,7 @@ export function leerVineta(ev) {
     capitulo: capT ? { n: parseInt(capT[1], 10) || 0, titulo: corto(capT[2], 80) } : null,
     anterior: ant ? ant[1] : null,
     genesis: gen ? parseInt(gen[1], 10) : null,
+    idioma: (ev.tags.find((t) => t[0] === 'l' && t[2] === 'ISO-639-1' && /^[a-z]{2}$/.test(t[1] || '')) || [])[1] || null,
     fuentes: ev.tags.filter((t) => t[0] === 'r' && /^https?:\/\//.test(t[1] || '')).map((t) => t[1]).slice(0, 5),
     zaps: ev.tags.filter((t) => t[0] === 'zap' && /^[0-9a-f]{64}$/.test(t[1] || ''))
       .map((t) => ({ pubkey: t[1], relay: t[2], peso: Math.max(0, parseFloat(t[3]) || 0) })),

@@ -87,12 +87,16 @@ export function figuraVineta(v, { pie } = {}) {
   fig.dataset.id = v.id || '';
   const cap = document.createElement('figcaption');
   cap.className = 'cap';
-  if (v.epigrafe.b) {
-    const b = document.createElement('b');
-    b.textContent = v.epigrafe.b;
-    cap.append(b, ' ');
+  const b = document.createElement('b');
+  b.textContent = v.epigrafe.b;
+  if (v.epigrafe.enLinea) {
+    // Negrita en medio de la frase, donde dice {b} (sólo arreglos locales del génesis).
+    const [antes, despues = ''] = v.epigrafe.t.split('{b}');
+    cap.append(antes, b, despues);
+  } else {
+    if (v.epigrafe.b) cap.append(b, ' ');
+    cap.append(v.epigrafe.t);
   }
-  cap.append(v.epigrafe.t);
   const art = document.createElement('div');
   art.className = 'art';
   art.appendChild(svgDeArte(v.arte, v.alt));

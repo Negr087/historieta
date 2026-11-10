@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>La Historieta de Bitcoin · edición infinita sobre Nostr</title>
-<meta name="description" content="La historia de Bitcoin en historieta, que escribe la comunidad viñeta por viñeta sobre Nostr.">
+<meta name="description" data-i18n-content="La historia de Bitcoin en historieta, que escribe la comunidad viñeta por viñeta sobre Nostr." content="La historia de Bitcoin en historieta, que escribe la comunidad viñeta por viñeta sobre Nostr.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Patrick+Hand&display=swap" rel="stylesheet">
@@ -17,20 +17,21 @@
 
 <div class="app">
   <header class="bar">
-    <span class="brand">Bitcoin <i>·</i> la historieta</span>
-    <nav class="nav" aria-label="Secciones">
-      <button type="button" data-vista="leer">Leer</button>
-      <button type="button" data-vista="ramas">Ramas</button>
-      <button type="button" data-vista="crear">Crear viñeta</button>
-      <button type="button" data-vista="curar" id="nav-curar" hidden>Curar</button>
+    <span class="brand" data-i18n-html="Bitcoin <i>·</i> la historieta">Bitcoin <i>·</i> la historieta</span>
+    <nav class="nav" aria-label="Secciones" data-i18n-aria="Secciones">
+      <button type="button" data-vista="leer" data-i18n="Leer">Leer</button>
+      <button type="button" data-vista="ramas" data-i18n="Ramas">Ramas</button>
+      <button type="button" data-vista="crear" data-i18n="Crear viñeta">Crear viñeta</button>
+      <button type="button" data-vista="curar" id="nav-curar" data-i18n="Curar" hidden>Curar</button>
       <button type="button" class="yo" id="nav-yo">Entrar</button>
-      <button type="button" id="nav-ajustes" title="Ajustes" aria-label="Ajustes">⚙</button>
+      <button type="button" id="nav-idioma" class="idioma"></button>
+      <button type="button" id="nav-ajustes" title="Ajustes" aria-label="Ajustes" data-i18n-title="Ajustes" data-i18n-aria="Ajustes">⚙</button>
     </nav>
     <span class="where"><span id="label" aria-live="polite">Portada</span> · <span id="estado">Conectando…</span></span>
   </header>
 
   <main class="stage" id="stage">
-    <div class="aviso" id="aviso" hidden><b>Falta configurar la curadora.</b> Poné tu npub en Ajustes (⚙) o en <code>src/config.js</code>: con eso se cargan las 254 viñetas del génesis.</div>
+    <div class="aviso" id="aviso" data-i18n-html="<b>Falta configurar la curadora.</b> Poné tu npub en Ajustes (⚙) o en <code>src/config.js</code>: con eso se cargan las 254 viñetas del génesis." hidden><b>Falta configurar la curadora.</b> Poné tu npub en Ajustes (⚙) o en <code>src/config.js</code>: con eso se cargan las 254 viñetas del génesis.</div>
     <div class="vista" id="vista-leer"></div>
     <div class="vista" id="vista-ramas" hidden></div>
     <div class="vista" id="vista-v" hidden></div>
@@ -38,10 +39,10 @@
     <div class="vista" id="vista-curar" hidden></div>
   </main>
 
-  <nav class="pager" id="pager" aria-label="Pasar de página">
-    <button class="btn ghost" type="button" id="prev">← Anterior</button>
+  <nav class="pager" id="pager" aria-label="Pasar de página" data-i18n-aria="Pasar de página">
+    <button class="btn ghost" type="button" id="prev" data-i18n="← Anterior">← Anterior</button>
     <span class="count" id="count">1 / 1</span>
-    <button class="btn" type="button" id="next">Siguiente →</button>
+    <button class="btn" type="button" id="next" data-i18n="Siguiente →">Siguiente →</button>
   </nav>
 </div>
 

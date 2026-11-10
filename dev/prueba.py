@@ -18,6 +18,8 @@ errores = []
 def contexto(browser):
     ctx = browser.new_context(viewport={"width": 1280, "height": 900})
     ctx.add_init_script(f"localStorage.setItem('historieta.ajustes', {json.dumps(AJUSTES)});")
+    # La prueba busca botones por su texto en español.
+    ctx.add_init_script("localStorage.setItem('historieta.idioma', 'es');")
     return ctx
 
 

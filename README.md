@@ -1,5 +1,7 @@
 # La Historieta de Bitcoin · edición infinita sobre Nostr
 
+*[English version](README.en.md)*
+
 La historieta original (23 capítulos, 254 viñetas) pasa a ser el **génesis** de una historieta que no termina: cualquiera puede sumar viñetas con las mismas piezas de dibujo, firmarlas con su identidad de Nostr y cobrar zaps por ellas. Los curadores eligen cuáles entran al **tronco** (la historia oficial); el resto forma **ramas**: historias alternativas, chistes y episodios que cuelgan de cualquier viñeta.
 
 ## Qué hay adentro
@@ -12,9 +14,13 @@ La historieta original (23 capítulos, 254 viñetas) pasa a ser el **génesis** 
 | `src/editor.js` | El editor: piezas, carteles, textos, arrastrar, agrandar, espejar. |
 | `src/nostr.js` | Relays, identidad (extensión NIP-07 o clave local), publicación, perfiles y zaps (NIP-57 con reparto). |
 | `src/app.js` | La app: lector, ramas, editor, curaduría, ajustes. |
+| `src/i18n.js` | Idiomas de la interfaz (español e inglés). El texto en español es la clave. |
+| `src/genesis-en.json` | Traducción al inglés del génesis: epígrafes, globos, descripciones, capítulos y los textos dibujados en el arte. |
+| `src/genesis-arreglos.json` | Arreglos de cómo se muestran 34 epígrafes del génesis en español (la negrita va en medio de la frase). |
 | `src/genesis.json`, `src/library.svg` | Las 254 viñetas y la biblioteca de piezas, extraídas de la historieta original. |
 | `scripts/extraer.py` | Vuelve a generar `genesis.json` y `library.svg` desde el HTML original. |
 | `scripts/publicar-genesis.mjs` | Firma y publica el génesis en los relays. |
+| `scripts/reenviar-genesis.mjs` | Copia el génesis ya firmado a los relays que no lo tienen (sin nsec). |
 | `dev/servidor.mjs` | Servidor de desarrollo: la app + un relay de prueba en memoria. |
 | `dev/prueba.py` | Prueba de punta a punta con Playwright. |
 
@@ -22,7 +28,7 @@ La historieta original (23 capítulos, 254 viñetas) pasa a ser el **génesis** 
 
 ```bash
 npm install
-npm run build          # genera dist/index.html (un solo archivo, ~440 KB)
+npm run build          # genera dist/index.html (un solo archivo, ~540 KB)
 ```
 
 ### 1. Probar en tu máquina, sin tocar los relays públicos
@@ -77,7 +83,7 @@ Es un solo archivo estático (`dist/index.html`):
 
 | Kind | Qué es | Tags importantes |
 | --- | --- | --- |
-| `8333` | Una viñeta (evento regular: no se edita) | `t=historieta-bitcoin`, `capitulo`, `e … anterior` (la viñeta que continúa), `genesis` (sólo las originales), `r` (fuentes), `zap` (reparto), `alt` |
+| `8333` | Una viñeta (evento regular: no se edita) | `t=historieta-bitcoin`, `capitulo`, `e … anterior` (la viñeta que continúa), `genesis` (sólo las originales), `r` (fuentes), `zap` (reparto), `L`/`l` (idioma, sólo las de la comunidad), `alt` |
 | `1985` | Etiqueta de canon (NIP-32), firmada por un curador | `L=historieta-bitcoin`, `l=canon`, `e` (la viñeta), `k=8333` |
 | `5` | Un curador saca una viñeta del canon (borra su etiqueta) | `e` (la etiqueta), `k=1985` |
 | `9735` | Recibos de zap (NIP-57): suman los sats de cada viñeta | `e` (la viñeta) |
@@ -105,6 +111,14 @@ El contenido de una viñeta es JSON:
 
 Como las viñetas del génesis tienen fecha fija, la app calcula sus ids sola: lee la historieta original aunque los relays no respondan.
 
+### Idiomas
+
+La app está en español y en inglés. Arranca en el idioma del navegador (si no es español ni inglés, en español), se cambia con el botón **EN / ES** de la barra o en Ajustes, y queda guardado en ese navegador. Con `?lang=en` en la URL se abre directo en inglés, útil para compartir.
+
+- **Interfaz**: `src/i18n.js`. Para sumar un texto, escribilo en español dentro de `t('…')` y agregá su traducción en `EN`. `npm run build` avisa si falta alguna.
+- **Génesis**: las viñetas originales están firmadas en español y no se pueden cambiar sin cambiar sus ids. En inglés, la app les superpone la traducción de `src/genesis-en.json` al mostrarlas.
+- **Viñetas de la comunidad**: se muestran tal como las escribió su autor. El editor les agrega una etiqueta de idioma (NIP-32: `L=ISO-639-1`, `l=es|en`), y cuando una está en otro idioma que la interfaz, aparece un sello `EN` o `ES`.
+
 ### Zaps
 
 Las viñetas de la comunidad llevan tags `zap` (NIP-57) con el reparto de `config.js`: por defecto, 80 % para quien la hizo y 20 % para la creadora de la historieta. La app pide una factura por cada parte. Si tenés una billetera WebLN (Alby), paga sola; si no, muestra los QR. Sin sesión, el zap sale anónimo.
@@ -113,6 +127,6 @@ Las viñetas de la comunidad llevan tags `zap` (NIP-57) con el reparto de `confi
 
 - Que **Sat tenga su propia npub** y publique cada viñeta nueva del tronco como una nota común con imagen, para que aparezca en Primal, Damus y Amethyst.
 - **Piezas nuevas** propuestas por ilustradores como eventos, que los curadores aprueban para la biblioteca.
-- **Traducciones** del epígrafe y los globos como eventos aparte.
+- **Traducciones de la comunidad**: que cualquiera pueda traducir una viñeta como un evento aparte, y sumar más idiomas.
 - **Edición impresa** del canon de cada año.
 - Firmar con **NIP-46** (bunker) además de la extensión.

@@ -1,6 +1,8 @@
 // Editor de viñetas: armás la escena con las piezas de la biblioteca,
 // escribís el epígrafe y el globo, y sale el mismo formato que las originales.
 
+import { t } from './i18n.js';
+
 const SVGNS = 'http://www.w3.org/2000/svg';
 const TINTA = '#1b1838';
 const FUENTE_TITULO = 'Bowlby One, Arial Black, sans-serif';
@@ -34,8 +36,8 @@ export function nuevaCapa(tipo, ref) {
     const x = ref.startsWith('sat') ? 252 : 40;
     return { tipo, ref, x, y: 262 - c.h + (ref.startsWith('sat') ? 8 : 0), w: c.w, h: c.h, espejo: false, color: c.color ? '#FFD84D' : null };
   }
-  if (tipo === 'cartel') return { tipo, x: 40, y: 40, w: 150, h: 34, texto: 'CARTEL', color: '#FFD84D', tam: 16 };
-  if (tipo === 'texto') return { tipo, x: 200, y: 80, texto: 'Texto', color: TINTA, tam: 26, w: 0, h: 0 };
+  if (tipo === 'cartel') return { tipo, x: 40, y: 40, w: 150, h: 34, texto: t('CARTEL'), color: '#FFD84D', tam: 16 };
+  if (tipo === 'texto') return { tipo, x: 200, y: 80, texto: t('Texto'), color: TINTA, tam: 26, w: 0, h: 0 };
   if (tipo === 'caja') return { tipo, x: 150, y: 150, w: 100, h: 70, color: '#ffffff' };
   if (tipo === 'circulo') return { tipo, x: 170, y: 120, w: 70, h: 70, color: '#F7931A' };
   throw new Error(`Tipo desconocido: ${tipo}`);
@@ -70,13 +72,13 @@ export function arteDeCapas(capas) { return capas.map(svgCapa).join('\n'); }
 
 export function altDeCapas(capas) {
   const partes = capas.map((c) => {
-    if (c.tipo === 'pieza') return PORREF[c.ref]?.nombre;
-    if (c.tipo === 'cartel') return `un cartel que dice «${c.texto}»`;
-    if (c.tipo === 'texto') return `el texto «${c.texto}»`;
+    if (c.tipo === 'pieza') return PORREF[c.ref] && t(PORREF[c.ref].nombre);
+    if (c.tipo === 'cartel') return t('un cartel que dice «{x}»', { x: c.texto });
+    if (c.tipo === 'texto') return t('el texto «{x}»', { x: c.texto });
     return null;
   }).filter(Boolean);
   if (!partes.length) return '';
-  const s = partes.length > 1 ? `${partes.slice(0, -1).join(', ')} y ${partes.at(-1)}` : partes[0];
+  const s = partes.length > 1 ? t('{lista} y {ultimo}', { lista: partes.slice(0, -1).join(', '), ultimo: partes.at(-1) }) : partes[0];
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 

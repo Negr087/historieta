@@ -2,7 +2,22 @@
 // Uso: node build.mjs   (o npm run build)
 
 import { build } from 'esbuild';
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
+import { EN } from './src/i18n.js';
+
+// Avisa si algún texto de la interfaz no tiene traducción al inglés.
+{
+  const claves = new Set();
+  for (const f of readdirSync('src').filter((x) => /\.(js|html)$/.test(x))) {
+    const s = readFileSync(`src/${f}`, 'utf8');
+    for (const m of s.matchAll(/\bt\(\s*'((?:[^'\\]|\\.)*)'/g)) claves.add(m[1]);
+    for (const m of s.matchAll(/\bt\([^'()]*\?\s*'([^']*)'\s*:\s*'([^']*)'/g)) { claves.add(m[1]); claves.add(m[2]); }
+    for (const m of s.matchAll(/data-i18n(?:-\w+)?="([^"]*)"/g)) claves.add(m[1]);
+    if (f === 'editor.js') for (const m of s.matchAll(/nombre: '([^']*)'/g)) claves.add(m[1]);
+  }
+  const faltan = [...claves].filter((k) => !(k in EN));
+  if (faltan.length) console.warn(`Faltan ${faltan.length} traducciones al inglés en src/i18n.js:\n  ${faltan.join('\n  ')}`);
+}
 
 const r = await build({
   entryPoints: ['src/app.js'],

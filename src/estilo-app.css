@@ -105,3 +105,6 @@ input[type="range"] { width: 100%; accent-color: var(--orange); }
   .stage { padding: 10px; }
   .hoja { padding: 12px; }
 }
+
+/* Botón de idioma (ES / EN) */
+.nav .idioma { min-width: 2.8em; }

@@ -1,0 +1,2423 @@
+{
+ "_": "Traducción al inglés del génesis. La app la superpone al mostrar las viñetas originales (los eventos firmados no cambian).",
+ "capitulos": {
+  "1": {
+   "titulo": "Before Bitcoin",
+   "anios": "1983 – 2007",
+   "grupo": "Getting started"
+  },
+  "2": {
+   "titulo": "The crisis and the whitepaper",
+   "anios": "2008",
+   "grupo": "Getting started"
+  },
+  "3": {
+   "titulo": "The genesis block",
+   "anios": "2009",
+   "grupo": "Getting started"
+  },
+  "4": {
+   "titulo": "Pizza Day",
+   "anios": "2010",
+   "grupo": "The early years"
+  },
+  "5": {
+   "titulo": "Parity and Satoshi's farewell",
+   "anios": "2011",
+   "grupo": "The early years"
+  },
+  "6": {
+   "titulo": "First booms and busts",
+   "anios": "2012 – 2014",
+   "grupo": "The early years"
+  },
+  "7": {
+   "titulo": "The ecosystem grows",
+   "anios": "2015 – 2016",
+   "grupo": "Adolescence"
+  },
+  "8": {
+   "titulo": "The block size war",
+   "anios": "2017",
+   "grupo": "Adolescence"
+  },
+  "9": {
+   "titulo": "Crypto winter",
+   "anios": "2018 – 2019",
+   "grupo": "Adolescence"
+  },
+  "10": {
+   "titulo": "The halving and the pandemic",
+   "anios": "2020",
+   "grupo": "Maturity"
+  },
+  "11": {
+   "titulo": "El Salvador and China",
+   "anios": "2021",
+   "grupo": "Maturity"
+  },
+  "12": {
+   "titulo": "The year of collapses",
+   "anios": "2022",
+   "grupo": "Maturity"
+  },
+  "13": {
+   "titulo": "Ordinals and the recovery",
+   "anios": "2023",
+   "grupo": "Maturity"
+  },
+  "14": {
+   "titulo": "ETFs and USD 100,000",
+   "anios": "2024",
+   "grupo": "Maturity"
+  },
+  "15": {
+   "titulo": "Bitcoin in global politics and finance",
+   "anios": "2025 – 2026",
+   "grupo": "Maturity"
+  },
+  "16": {
+   "titulo": "Bitcoin in Argentina",
+   "anios": "inflation, cepo and the blue dollar",
+   "grupo": "Cross-cutting chapter"
+  },
+  "17": {
+   "titulo": "Hash: the digital fingerprint",
+   "anios": "SHA-256",
+   "grupo": "Technical special: inside Bitcoin"
+  },
+  "18": {
+   "titulo": "The blockchain",
+   "anios": "blocks and confirmations",
+   "grupo": "Technical special: inside Bitcoin"
+  },
+  "19": {
+   "titulo": "Private and public keys",
+   "anios": "signatures and wallets",
+   "grupo": "Technical special: inside Bitcoin"
+  },
+  "20": {
+   "titulo": "Transactions",
+   "anios": "UTXOs, fees and mempool",
+   "grupo": "Technical special: inside Bitcoin"
+  },
+  "21": {
+   "titulo": "Nodes and mining",
+   "anios": "proof of work",
+   "grupo": "Technical special: inside Bitcoin"
+  },
+  "22": {
+   "titulo": "Rewards and halving",
+   "anios": "issuance and 21 million",
+   "grupo": "Technical special: inside Bitcoin"
+  },
+  "23": {
+   "titulo": "Who holds the bitcoins?",
+   "anios": "supply distribution",
+   "grupo": "Technical special: inside Bitcoin"
+  }
+ },
+ "vinetas": {
+  "1": {
+   "b": "The 1980s.",
+   "t": "Computers reach offices and homes, and a question pops up: can you pay digitally without anyone spying on you?",
+   "globos": [
+    "Hmm, that question sounds familiar."
+   ],
+   "alt": "Sat looking thoughtful next to a 1980s computer"
+  },
+  "2": {
+   "b": "1983.",
+   "t": "Cryptographer David Chaum publishes a method, blind signatures, for paying digitally without leaving a trace.",
+   "globos": [
+    "Like signing an envelope through carbon paper without opening it."
+   ],
+   "alt": "A coin inside an envelope and a thoughtful Sat"
+  },
+  "3": {
+   "b": "1989.",
+   "t": "Chaum founds DigiCash and launches ecash, digital money with privacy.",
+   "globos": [
+    "It works! Well... almost."
+   ],
+   "alt": "A bank with a DigiCash sign and Sat giving a thumbs up"
+  },
+  "4": {
+   "b": "1998.",
+   "t": "DigiCash goes bankrupt. It depended on a single company, and when the company fell, the money fell with it.",
+   "globos": [
+    "A single point of failure. Noted."
+   ],
+   "alt": "A crooked, cracked bank with a closed sign; Sat looking worried"
+  },
+  "5": {
+   "b": "1992.",
+   "t": "Eric Hughes, Timothy May and John Gilmore start a mailing list: the cypherpunks are born, programmers who want to protect privacy with cryptography.",
+   "globos": [
+    "They didn't ask for permission. They wrote code."
+   ],
+   "alt": "Three silhouettes in dark glasses with mail envelopes; Sat looking happy"
+  },
+  "6": {
+   "b": "1993.",
+   "t": "Hughes publishes \"A Cypherpunk's Manifesto\". The core idea: privacy in the digital age isn't something you ask for, it's something you build with code.",
+   "globos": [
+    "Nobody's going to hand it to you. You have to program it."
+   ],
+   "alt": "A paper manifesto with an orange padlock; Sat looking thoughtful"
+  },
+  "7": {
+   "b": "1997.",
+   "t": "Adam Back introduces Hashcash: to send a message, you have to solve a computing puzzle. It started out as a defense against spam.",
+   "globos": [
+    "Spending effort to prove something cost you. Remember this one."
+   ],
+   "alt": "An envelope with an hourglass; Sat looking surprised"
+  },
+  "8": {
+   "b": "",
+   "t": "There were no payments yet: just loose pieces of a puzzle.",
+   "globos": [
+    "Who's going to put them together?"
+   ],
+   "alt": "Three puzzle pieces labeled privacy, blind signatures and hashcash, and an empty gap; Sat looking thoughtful"
+  },
+  "9": {
+   "b": "1998.",
+   "t": "Wei Dai proposes b-money: a currency created with computing power and recorded by every participant, with no central bank. Satoshi would cite it in the whitepaper.",
+   "globos": [
+    "A network where everyone keeps the books."
+   ],
+   "alt": "Four computers connected to each other with a coin in the middle; Sat looking happy"
+  },
+  "10": {
+   "b": "1998.",
+   "t": "Nick Szabo designs Bit Gold, digital coins created with proof of work. He only describes it publicly in 2005.",
+   "globos": [
+    "A chain of proofs of work. Now this is getting interesting."
+   ],
+   "alt": "Three golden blocks chained together; Sat looking surprised"
+  },
+  "11": {
+   "b": "2004.",
+   "t": "Hal Finney creates RPOW, reusable proofs of work. Five years later he would be the first person to receive bitcoin from Satoshi.",
+   "globos": [
+    "We'll be seeing that name again."
+   ],
+   "alt": "A coin surrounded by two circular arrows; Sat looking surprised"
+  },
+  "12": {
+   "b": "",
+   "t": "None of them became real, decentralized money. They still had to solve, without a boss, the double-spending problem.",
+   "globos": [
+    "If it's a file, what stops you from spending it twice?"
+   ],
+   "alt": "A coin that copies itself into two identical coins; Sat looking worried"
+  },
+  "13": {
+   "b": "Double spending.",
+   "t": "A digital file can be copied with one click. How do you stop someone from paying twice with the same coin?",
+   "globos": [
+    "It doesn't happen with a paper bill. With a file, it does."
+   ],
+   "alt": "Two identical coins, each in front of a different newsstand; Sat looking thoughtful"
+  },
+  "14": {
+   "b": "",
+   "t": "The usual solution: put someone in the middle, a bank or a company that writes down who owns what.",
+   "globos": [
+    "It works, but you have to trust the one in the middle."
+   ],
+   "alt": "A bank next to an account ledger; Sat looking thoughtful"
+  },
+  "15": {
+   "b": "",
+   "t": "And that trust was about to be put to the test: in 2008 the global financial system goes into crisis.",
+   "globos": [
+    "It's going to be a wild year."
+   ],
+   "alt": "A 2008 calendar; Sat looking worried"
+  },
+  "16": {
+   "b": "October 31, 2008.",
+   "t": "Someone sends a message to a cryptography mailing list...",
+   "globos": [
+    "Dun dun dun... Turn the page."
+   ],
+   "alt": "At night, a computer with an envelope glowing on the screen; Sat looking surprised"
+  },
+  "17": {
+   "b": "2007–2008.",
+   "t": "Many banks had lent money through high-risk mortgages, and the numbers stop adding up.",
+   "globos": [
+    "This looks a bit wobbly."
+   ],
+   "alt": "A tower of blocks with a house on top, leaning and about to fall; Sat looking worried"
+  },
+  "18": {
+   "b": "March 2008.",
+   "t": "Bear Stearns, one of the big US investment banks, is bailed out and sold to JPMorgan.",
+   "globos": [
+    "When a big one falls, everything shakes."
+   ],
+   "alt": "A bank with a sold sign; Sat looking surprised"
+  },
+  "19": {
+   "b": "September 15, 2008.",
+   "t": "Lehman Brothers files for bankruptcy, the largest in US history.",
+   "globos": [
+    "One less giant, and the panic is just getting started."
+   ],
+   "alt": "A skyscraper, a cardboard box and a falling red line; Sat looking worried"
+  },
+  "20": {
+   "b": "October 2008.",
+   "t": "Governments step in to bail out banks. The US approves a plan of up to 700 billion dollars.",
+   "globos": [
+    "Once again: everything depends on the ones in the middle."
+   ],
+   "alt": "Banknotes raining down on a bank; Sat looking thoughtful"
+  },
+  "21": {
+   "b": "August 2008.",
+   "t": "Someone signing as Satoshi Nakamoto registers the domain bitcoin.org. Nobody knows who it is.",
+   "globos": [
+    "A name, a domain and lots of questions."
+   ],
+   "alt": "A faceless hooded figure in front of a computer showing bitcoin.org; Sat looking thoughtful"
+  },
+  "22": {
+   "b": "October 31, 2008.",
+   "t": "Satoshi sends a 9-page paper to a cryptography mailing list: \"Bitcoin: A Peer-to-Peer Electronic Cash System\".",
+   "globos": [
+    "Nine pages. Small, but dangerous."
+   ],
+   "alt": "A 9-page paper peeking out of an envelope; Sat looking surprised"
+  },
+  "23": {
+   "b": "",
+   "t": "The idea in one sentence: digital payments from person to person, with no bank or company in the middle.",
+   "globos": [
+    "No middlemen. No bosses."
+   ],
+   "alt": "Two people passing a coin to each other; a bank crossed out with a red X; Sat looking happy"
+  },
+  "24": {
+   "b": "",
+   "t": "The trick: every payment is recorded in a public chain of blocks, and adding a block requires solving a computing puzzle. The paper cites b-money and Hashcash.",
+   "globos": [
+    "The loose pieces! Now they fit."
+   ],
+   "alt": "Four puzzle pieces that now fit together: hashcash, b-money, timestamps and an orange piece with the bitcoin symbol; Sat looking happy"
+  },
+  "25": {
+   "b": "November 2, 2008.",
+   "t": "The first public reply arrives. James A. Donald doubts it can scale: every node would have to process every transaction.",
+   "globos": [
+    "Good question. Everyone processing everything?"
+   ],
+   "alt": "A computer overflowing with a pile of papers; Sat looking thoughtful"
+  },
+  "26": {
+   "b": "",
+   "t": "Satoshi patiently replied: someone who only wants to verify their own payments doesn't need to store the whole chain.",
+   "globos": [
+    "You don't need to carry everything to verify a payment."
+   ],
+   "alt": "A big database, a full node, and a lightweight phone with a coin; Sat looking happy"
+  },
+  "27": {
+   "b": "",
+   "t": "One of the few who got excited early on was Hal Finney, the RPOW guy. He would be the first person besides Satoshi to use the program.",
+   "globos": [
+    "That name... we already knew it!"
+   ],
+   "alt": "A silhouette in front of a computer with a coin on the screen; Sat looking surprised"
+  },
+  "28": {
+   "b": "",
+   "t": "The most important thing was still missing: getting the network actually running. That would happen in January 2009.",
+   "globos": [
+    "Turn the page: 2009 begins."
+   ],
+   "alt": "A calendar that says 2009; Sat looking happy"
+  },
+  "29": {
+   "b": "January 3, 2009.",
+   "t": "Satoshi mines the first block of the chain: the genesis block, or block 0.",
+   "globos": [
+    "First block! It all starts here."
+   ],
+   "alt": "A golden block with the number 0 surrounded by sparkles; Sat looking surprised"
+  },
+  "30": {
+   "b": "",
+   "t": "In the block he left a message: the date and a headline from The Times about yet another bank bailout. Many read it as a timestamp and as a critique of the system.",
+   "globos": [
+    "A timestamp, with a jab included."
+   ],
+   "alt": "A newspaper dated January 3, 2009 with a headline marked in red; Sat looking thoughtful"
+  },
+  "31": {
+   "b": "January 9, 2009.",
+   "t": "The first version of the program comes out, open source. Anyone can download it and join the network.",
+   "globos": [
+    "Open source: download it, look at it, use it."
+   ],
+   "alt": "A computer downloading the program; Sat looking happy"
+  },
+  "32": {
+   "b": "",
+   "t": "An oddity: the 50 bitcoins in the genesis block can't be spent, because of a detail in how the code is written.",
+   "globos": [
+    "The first gift... that can't be opened."
+   ],
+   "alt": "A huge coin with a blue padlock; Sat looking thoughtful"
+  },
+  "33": {
+   "b": "",
+   "t": "Hal Finney, the RPOW guy, downloads the program and announces on Twitter that he's running it. He is the first person besides Satoshi to use it.",
+   "globos": [
+    "There's someone on the other end now."
+   ],
+   "alt": "A silhouette in front of a computer with a message that says Running bitcoin; Sat looking happy"
+  },
+  "34": {
+   "b": "January 12, 2009.",
+   "t": "Satoshi sends 10 bitcoins to Finney: the first transaction between two people (block 170).",
+   "globos": [
+    "Bitcoin travels from one person to another. For the first time!"
+   ],
+   "alt": "A hooded figure passes 10 bitcoins to another person; Sat looking surprised"
+  },
+  "35": {
+   "b": "",
+   "t": "In those months the network was tiny: mining meant leaving an ordinary computer switched on.",
+   "globos": [
+    "No fancy equipment. Just a computer left on."
+   ],
+   "alt": "An ordinary computer with coins coming out of it; Sat looking happy"
+  },
+  "36": {
+   "b": "February 11, 2009.",
+   "t": "Satoshi writes on a forum about why he created Bitcoin: traditional currencies require trusting banks and institutions, and that trust has been broken many times.",
+   "globos": [
+    "Trust: the key word of this whole book."
+   ],
+   "alt": "A forum window with a post where the word trust is highlighted; Sat looking thoughtful"
+  },
+  "37": {
+   "b": "",
+   "t": "For more than a year, bitcoin was worth practically nothing: there was nowhere to buy or sell it, and it circulated among cryptography enthusiasts.",
+   "globos": [
+    "What am I worth? Nobody knows yet."
+   ],
+   "alt": "A price tag that says almost zero pesos; Sat looking worried"
+  },
+  "38": {
+   "b": "October 5, 2009.",
+   "t": "New Liberty Standard publishes the first exchange rate: 1,309 bitcoins per dollar, calculated from the cost of the electricity used for mining.",
+   "globos": [
+    "1,309 for one dollar! What a bargain, looking back."
+   ],
+   "alt": "A blackboard that says 1 USD equals 1,309 BTC and a light bulb; Sat looking surprised"
+  },
+  "39": {
+   "b": "",
+   "t": "2009 came to an end: a small network of enthusiasts, with a first reference price, but up and running.",
+   "globos": [
+    "Tiny, but alive."
+   ],
+   "alt": "A small network of connected orange nodes; Sat looking happy"
+  },
+  "40": {
+   "b": "2010.",
+   "t": "Someone is about to discover a very concrete use for bitcoin: ordering pizza.",
+   "globos": [
+    "Dun dun dun... Did somebody say pizza?"
+   ],
+   "alt": "A whole pepperoni pizza; Sat looking happy"
+  },
+  "41": {
+   "b": "February 6, 2010.",
+   "t": "Bitcoin Market is born, the first exchange: at last there is a place to offer and look for bitcoins.",
+   "globos": [
+    "Finally, a place to trade!"
+   ],
+   "alt": "A stall with a Bitcoin Market sign and a coin; Sat looking happy"
+  },
+  "42": {
+   "b": "May 18, 2010.",
+   "t": "Programmer Laszlo Hanyecz posts on the Bitcointalk forum: he offers 10,000 bitcoins to anyone who gets him two large pizzas.",
+   "globos": [
+    "A clear offer, no fine print."
+   ],
+   "alt": "A forum post offering 10,000 bitcoins for 2 pizzas; Sat looking thoughtful"
+  },
+  "43": {
+   "b": "May 22, 2010.",
+   "t": "Jeremy Sturdivant, in Jacksonville, Florida, takes the deal: he orders two Papa John's pizzas and has them delivered. Hanyecz pays him the 10,000 bitcoins.",
+   "globos": [
+    "Delivered! Bitcoin buys something real."
+   ],
+   "alt": "Two stacked pizza boxes and a person delivering them; Sat looking surprised"
+  },
+  "44": {
+   "b": "",
+   "t": "That day, the 10,000 bitcoins were worth about 41 dollars. Today May 22 is celebrated as Bitcoin Pizza Day.",
+   "globos": [
+    "One of the most expensive pizzas in history. And people celebrate it!"
+   ],
+   "alt": "A May 22 calendar with a slice of pizza; Sat looking happy"
+  },
+  "45": {
+   "b": "",
+   "t": "Hanyecz was also a pioneer of mining with graphics cards (GPUs): they compute many things in parallel and mine much faster than an ordinary processor.",
+   "globos": [
+    "More muscle for mining."
+   ],
+   "alt": "A graphics card with two fans and a coin; Sat looking happy"
+  },
+  "46": {
+   "b": "July 11, 2010.",
+   "t": "Slashdot, a news site for programmers, writes about Bitcoin. New users pour in and the price jumps from 0.008 to 0.08 dollars in a few days.",
+   "globos": [
+    "It went up tenfold! And it's still pennies."
+   ],
+   "alt": "A chart rising from 0.008 to 0.08 dollars; Sat looking surprised"
+  },
+  "47": {
+   "b": "July 2010.",
+   "t": "A programmer, Jed McCaleb, turns mtgox.com, a site originally built for trading Magic cards, into a bitcoin exchange: Mt. Gox is born.",
+   "globos": [
+    "From cards to bitcoins. What a twist."
+   ],
+   "alt": "Two playing cards turning into a coin; Sat looking thoughtful"
+  },
+  "48": {
+   "b": "August 15, 2010.",
+   "t": "A code bug lets one transaction create more than 184 billion bitcoins out of thin air. The system's limit is 21 million.",
+   "globos": [
+    "This... shouldn't happen. At all."
+   ],
+   "alt": "An overflowing counter showing 184,467,440,737 bitcoins and a warning sign; Sat looking worried"
+  },
+  "49": {
+   "b": "",
+   "t": "Within a few hours the bug was spotted and a fixed version came out. Miners adopted it: the chain forked and those transactions were thrown out.",
+   "globos": [
+    "It broke and got fixed in hours. Good sign!"
+   ],
+   "alt": "A blockchain that forks: the block with the bug is crossed out and the healthy chain carries on; Sat looking happy"
+  },
+  "50": {
+   "b": "December 16, 2010.",
+   "t": "The first block mined by a pool, Slush's Pool, is documented: several miners team up and share the reward.",
+   "globos": [
+    "Together they mine more. And they share the prize."
+   ],
+   "alt": "Three computers contributing to the same coin; Sat looking happy"
+  },
+  "51": {
+   "b": "",
+   "t": "2010 came to an end: there were already exchanges, GPU mining and even pools. Bitcoin was no longer just for a handful of people.",
+   "globos": [
+    "More and more pieces on the board."
+   ],
+   "alt": "An exchange stall, a computer and a coin; Sat looking happy"
+  },
+  "52": {
+   "b": "2011.",
+   "t": "But Satoshi, the creator of all this, was about to disappear from the scene.",
+   "globos": [
+    "Dun dun dun... Where are you going, Satoshi?"
+   ],
+   "alt": "A hooded silhouette fading into the distance; a surprised Sat waving"
+  },
+  "53": {
+   "b": "February 9, 2011.",
+   "t": "Bitcoin reaches parity with the dollar: one bitcoin is now worth one dollar on Mt. Gox.",
+   "globos": [
+    "One to one! A whole dollar now."
+   ],
+   "alt": "A balanced scale with a bitcoin coin on one side and a one-dollar bill on the other; Sat looking happy"
+  },
+  "54": {
+   "b": "February 2011.",
+   "t": "Silk Road is born, a hidden marketplace where everything is paid in bitcoin. It mostly sold drugs and other illegal goods; the FBI would shut it down in 2013.",
+   "globos": [
+    "A use that worried more than a few people."
+   ],
+   "alt": "A dark browser window with a .onion address, a padlock and a coin; Sat looking worried"
+  },
+  "55": {
+   "b": "March 2011.",
+   "t": "Mt. Gox changes hands: Jed McCaleb sells it to French developer Mark Karpelès.",
+   "globos": [
+    "That name will make headlines later."
+   ],
+   "alt": "Two people handing over a key in front of an exchange stall; Sat looking thoughtful"
+  },
+  "56": {
+   "b": "April 2011.",
+   "t": "Namecoin is born, one of the first copies of Bitcoin's code. It is used to store data, such as .bit domain names, on its own chain.",
+   "globos": [
+    "A child with ideas of its own."
+   ],
+   "alt": "An orange bitcoin coin and a blue coin labeled .bit; Sat looking thoughtful"
+  },
+  "57": {
+   "b": "April 23, 2011.",
+   "t": "Satoshi writes to Mike Hearn, a developer: he says he has moved on to other things and that Bitcoin is in good hands. It is his last known message.",
+   "globos": [
+    "He's gone? Just like that?"
+   ],
+   "alt": "A hooded figure sends an envelope and walks away; Sat looking worried"
+  },
+  "58": {
+   "b": "",
+   "t": "The project is left in the hands of Gavin Andresen and the developer community. Since then, nobody has been able to prove who Satoshi is.",
+   "globos": [
+    "The code stays in the community's hands."
+   ],
+   "alt": "A person next to a folder of code; Sat looking happy"
+  },
+  "59": {
+   "b": "June 2011.",
+   "t": "The website Gawker publishes a story about Silk Road. More people come to Bitcoin, and so does more political attention: a senator asks the authorities to act.",
+   "globos": [
+    "The more famous you get, the closer they look."
+   ],
+   "alt": "A news story under a magnifying glass with an exclamation mark; Sat looking surprised"
+  },
+  "60": {
+   "b": "June 8, 2011.",
+   "t": "The price passes 30 dollars: in four months it has grown thirtyfold.",
+   "globos": [
+    "From 1 to 30 dollars in four months!"
+   ],
+   "alt": "A chart rising from 1 to more than 30 dollars; Sat looking surprised"
+  },
+  "61": {
+   "b": "June 19, 2011.",
+   "t": "An Mt. Gox account is hacked and fake trades are made: for a moment, the price shown by the exchange drops to one cent.",
+   "globos": [
+    "When the guardian fails, the price fails."
+   ],
+   "alt": "A broken screen showing US$0.01; Sat looking worried"
+  },
+  "62": {
+   "b": "",
+   "t": "The June bubble burst within days. After the crash, 2011 closed at about 4.70 dollars, far from the peak of 30.",
+   "globos": [
+    "Going up is nice. Going down, not so much."
+   ],
+   "alt": "A chart that rises to 30 dollars and drops to 4.70; Sat looking worried"
+  },
+  "63": {
+   "b": "October 7, 2011.",
+   "t": "Charlie Lee launches Litecoin: blocks every 2.5 minutes, four times faster than Bitcoin, and with a different mining algorithm (scrypt).",
+   "globos": [
+    "Faster, but not identical. Now there are cousins."
+   ],
+   "alt": "Two wide Bitcoin blocks every 10 minutes next to four small Litecoin blocks every 2.5 minutes; Sat looking happy"
+  },
+  "64": {
+   "b": "",
+   "t": "Without its creator, the network kept running block by block. No boss and no office: exactly what it set out to do.",
+   "globos": [
+    "Still no boss. That was the idea."
+   ],
+   "alt": "A blockchain that keeps growing while a silhouette fades away to one side; Sat looking happy"
+  },
+  "65": {
+   "b": "September 27, 2012.",
+   "t": "The Bitcoin Foundation is created, an association to promote and spread the technology.",
+   "globos": [
+    "Bitcoin has its own association now."
+   ],
+   "alt": "A building with an orange flag; Sat looking happy"
+  },
+  "66": {
+   "b": "November 28, 2012.",
+   "t": "First halving: at block 210,000 the reward drops from 50 to 25 bitcoins. It repeats every 210,000 blocks, about four years.",
+   "globos": [
+    "Every four years, half. Scarcity with rules."
+   ],
+   "alt": "A big 50 BTC coin that turns into a small 25 BTC coin; Sat looking thoughtful"
+  },
+  "67": {
+   "b": "February–April 2013.",
+   "t": "The price beats the 2011 record (31.91 dollars) and on April 1 it passes 100.",
+   "globos": [
+    "It beat the 2011 record... and kept going!"
+   ],
+   "alt": "A chart rising past the 100-dollar mark; Sat looking surprised"
+  },
+  "68": {
+   "b": "April 2013.",
+   "t": "With Cyprus in the news, the price reaches about 266 dollars and crashes toward 50, before settling back around 100.",
+   "globos": [
+    "Up like a rocket. Down like an anchor."
+   ],
+   "alt": "A chart that shoots up like a rocket and falls; Sat looking worried"
+  },
+  "69": {
+   "b": "October 2013.",
+   "t": "The FBI shuts down Silk Road and arrests Ross Ulbricht. The price drops to about 110 dollars, but weeks later it's back at 200.",
+   "globos": [
+    "It dropped to USD 110, but within weeks it was back at 200."
+   ],
+   "alt": "A dark window with SEIZED tape; Sat looking surprised"
+  },
+  "70": {
+   "b": "October 29, 2013.",
+   "t": "The first Bitcoin ATM is installed in a coffee shop in Vancouver.",
+   "globos": [
+    "A bitcoin ATM! In a coffee shop."
+   ],
+   "alt": "A Bitcoin ATM next to a cup of coffee; Sat looking happy"
+  },
+  "71": {
+   "b": "Late November 2013.",
+   "t": "For the first time, one bitcoin passes 1,000 dollars.",
+   "globos": [
+    "A thousand dollars! And in 2010 it was worth pennies."
+   ],
+   "alt": "A big US$1,000 price tag; Sat looking surprised"
+  },
+  "72": {
+   "b": "December 5, 2013.",
+   "t": "China's central bank bans financial institutions from using bitcoin. The price falls hard.",
+   "globos": [
+    "One warning from China and the price shakes."
+   ],
+   "alt": "A Bitcoin coin with a no sign; Sat looking worried"
+  },
+  "73": {
+   "b": "February 7, 2014.",
+   "t": "Mt. Gox, the largest exchange, halts withdrawals and talks about \"technical issues\".",
+   "globos": [
+    "Why can't I withdraw my bitcoins?"
+   ],
+   "alt": "A counter window with a WITHDRAWALS PAUSED sign and a line of customers; Sat looking worried"
+  },
+  "74": {
+   "b": "February 24–28, 2014.",
+   "t": "Trading is suspended, the site goes offline, and on the 28th Mt. Gox files for bankruptcy in Tokyo.",
+   "globos": [
+    "Offline... and no explanations."
+   ],
+   "alt": "An offline computer and a BANKRUPTCY paper; Sat looking worried"
+  },
+  "75": {
+   "b": "",
+   "t": "About 850,000 bitcoins were missing (750,000 from customers and 100,000 of its own), close to 7% of all that existed. Weeks later about 200,000 turned up in an old wallet.",
+   "globos": [
+    "An empty vault. That was the blow."
+   ],
+   "alt": "An open, empty safe with a sign saying 850,000 BTC missing; Sat looking worried"
+  },
+  "76": {
+   "b": "",
+   "t": "A 2015 analysis concluded that almost all of it had been stolen bit by bit since late 2011. The lesson: whoever holds your bitcoins can fail. The network, on the other hand, kept running.",
+   "globos": [
+    "Better to keep your own keys."
+   ],
+   "alt": "A chest and a key; Sat looking happy"
+  },
+  "77": {
+   "b": "February 2015.",
+   "t": "Joseph Poon and Thaddeus Dryja publish the Lightning Network draft: a layer for fast, cheap payments on top of Bitcoin.",
+   "globos": [
+    "Fast payments without filling up the chain."
+   ],
+   "alt": "Two circles joined by a channel with a lightning bolt; Sat looking thoughtful"
+  },
+  "78": {
+   "b": "May 29, 2015.",
+   "t": "Ross Ulbricht, creator of Silk Road, is sentenced to life in prison. The marketplace fell; the Bitcoin network kept going.",
+   "globos": [
+    "Silk Road ended. Bitcoin kept going."
+   ],
+   "alt": "A judge's gavel; Sat looking worried"
+  },
+  "79": {
+   "b": "July 30, 2015.",
+   "t": "Ethereum launches its network (\"Frontier\"). Vitalik Buterin's idea: a chain that also runs programs, not just payments.",
+   "globos": [
+    "Another network, with programs inside."
+   ],
+   "alt": "An Ethereum diamond next to a block of code; Sat looking surprised"
+  },
+  "80": {
+   "b": "August 2015.",
+   "t": "Bitcoin blocks fill up and the debate explodes: should the block size go up? Bitcoin XT is proposed to do it.",
+   "globos": [
+    "Bigger blocks or not? Nobody agreed."
+   ],
+   "alt": "A full block overflowing; Sat looking thoughtful"
+  },
+  "81": {
+   "b": "December 2015.",
+   "t": "The Bitcoin Core developers present SegWit: an upgrade that reorganizes each transaction's data and frees up space.",
+   "globos": [
+    "A clever trick to make room."
+   ],
+   "alt": "A block with a separate compartment; Sat looking thoughtful"
+  },
+  "82": {
+   "b": "2016.",
+   "t": "Another proposal appears, Bitcoin Classic, with bigger blocks. The community was still split between two paths.",
+   "globos": [
+    "Two paths and an undecided community."
+   ],
+   "alt": "A road that forks with two signs; Sat looking thoughtful"
+  },
+  "83": {
+   "b": "July 9, 2016.",
+   "t": "Second halving: the block reward drops from 25 to 12.5 bitcoins. The price was around 664 dollars.",
+   "globos": [
+    "Second half. The math stays the same."
+   ],
+   "alt": "A 25 BTC coin that becomes 12.5 BTC; Sat looking happy"
+  },
+  "84": {
+   "b": "August 2016.",
+   "t": "The Bitfinex exchange is hacked: 119,756 bitcoins are stolen, about 72 million dollars at the time.",
+   "globos": [
+    "Another exchange, another scare."
+   ],
+   "alt": "A safe with its door open and a wallet coming out; Sat looking worried"
+  },
+  "85": {
+   "b": "",
+   "t": "Bitfinex spread the loss: it cut every customer's balance by 36% and gave them BFX tokens. Those who held on to them were fully repaid by April 2017.",
+   "globos": [
+    "Everyone paid... and then got paid back."
+   ],
+   "alt": "BFX tokens and a minus 36 percent sign; Sat looking thoughtful"
+  },
+  "86": {
+   "b": "April–May 2016.",
+   "t": "\"The DAO\" is born, a collective fund on Ethereum with no bosses. It raises about 150 million dollars, the biggest crowdfunding up to that point.",
+   "globos": [
+    "A fund with no bosses, and 150 million."
+   ],
+   "alt": "A ballot box with coins falling in and the letters DAO; Sat looking surprised"
+  },
+  "87": {
+   "b": "June 17, 2016.",
+   "t": "An attacker drains 3.6 million Ethereum coins (about 50 million dollars). On July 20, Ethereum forks: Ethereum Classic is born.",
+   "globos": [
+    "A theft, a vote and a schism."
+   ],
+   "alt": "A road that splits in two, Ethereum and Ethereum Classic; Sat looking worried"
+  },
+  "88": {
+   "b": "",
+   "t": "Between July 2016 and January 2017 the price of Bitcoin rose about 60% and passed 1,000 dollars again. A wild 2017 was coming.",
+   "globos": [
+    "2016 ended on the way up. And the big stuff was coming."
+   ],
+   "alt": "A chart rising from 664 to more than 1,000 dollars; Sat looking happy"
+  },
+  "89": {
+   "b": "May 2017.",
+   "t": "With full blocks and rising fees, companies and miners sign the \"New York Agreement\": activate SegWit and, six months later, double the block to 2 MB (SegWit2x).",
+   "globos": [
+    "Everyone signed. Well, almost everyone."
+   ],
+   "alt": "Two hands shaking over a document; Sat looking thoughtful"
+  },
+  "90": {
+   "b": "March 2017.",
+   "t": "The price passes the November 2013 high (about 1,242 dollars) and climbs above 1,290.",
+   "globos": [
+    "2013 record beaten."
+   ],
+   "alt": "A chart crossing a previous-high line; Sat looking surprised"
+  },
+  "91": {
+   "b": "May 2017.",
+   "t": "For the first time, Bitcoin reaches 2,000 dollars, after passing 1,402 on May 1 and 1,800 on the 11th.",
+   "globos": [
+    "Two thousand! And the year was just getting started."
+   ],
+   "alt": "A US$2,000 price tag with confetti; Sat looking happy"
+  },
+  "92": {
+   "b": "August 1, 2017.",
+   "t": "A group that rejected SegWit and wanted blocks of up to 8 MB splits off from the chain and creates Bitcoin Cash (block 478,559).",
+   "globos": [
+    "An old chain and a new one. Two camps."
+   ],
+   "alt": "A blockchain that forks in two; Sat looking thoughtful"
+  },
+  "93": {
+   "b": "August 9 and 24, 2017.",
+   "t": "Miners approve SegWit (August 9) and it activates on the 24th at block 481,824. Bitcoin stays a single chain, without doubling the block.",
+   "globos": [
+    "SegWit activated. At last!"
+   ],
+   "alt": "A block with a green check mark; Sat looking happy"
+  },
+  "94": {
+   "b": "September 4, 2017.",
+   "t": "China bans ICOs (token sales to fund projects) and orders a halt to token trading. One exchange announces it will close on September 30.",
+   "globos": [
+    "China hits the brakes again."
+   ],
+   "alt": "A Bitcoin coin with a no sign; Sat looking worried"
+  },
+  "95": {
+   "b": "September 2017.",
+   "t": "Even with the ban, Bitcoin passes 5,000 dollars that month.",
+   "globos": [
+    "They banned it and it went up anyway."
+   ],
+   "alt": "A rising chart with a mark at 5,000 dollars; Sat looking surprised"
+  },
+  "96": {
+   "b": "November 8, 2017.",
+   "t": "The SegWit2x hard fork, planned for mid-November, is called off: no consensus. The 2 MB block never arrived.",
+   "globos": [
+    "No consensus, no change."
+   ],
+   "alt": "A crossed-out 2 MB block; Sat looking thoughtful"
+  },
+  "97": {
+   "b": "",
+   "t": "Between January and December 2017 the price grew almost twentyfold. On December 15 it reached about 17,900 dollars.",
+   "globos": [
+    "From a thousand to almost twenty thousand!"
+   ],
+   "alt": "A chart rising almost vertically; Sat looking surprised"
+  },
+  "98": {
+   "b": "December 2017.",
+   "t": "Cboe launches its bitcoin futures contract on December 10, and CME follows on the 17th. Wall Street joins the game.",
+   "globos": [
+    "Now even Wall Street is placing bets."
+   ],
+   "alt": "Two stock exchange buildings with orange flags; Sat looking happy"
+  },
+  "99": {
+   "b": "December 17, 2017.",
+   "t": "All-time high: 19,783 dollars. Five days later, the price lost about a third in 24 hours and fell below 14,000.",
+   "globos": [
+    "What a drop. And in one day."
+   ],
+   "alt": "A chart with a peak and a sharp drop; Sat looking worried"
+  },
+  "100": {
+   "b": "",
+   "t": "Two visions were now out in the open: Bitcoin, with SegWit and layers on top (like Lightning), and Bitcoin Cash, with bigger blocks. Bitcoin kept growing with the first one.",
+   "globos": [
+    "Two ideas about how to grow."
+   ],
+   "alt": "Two roads, one with Lightning and one with big blocks; Sat looking thoughtful"
+  },
+  "101": {
+   "b": "February 5, 2018.",
+   "t": "The price falls to about 6,200 dollars: half its value in just 16 days.",
+   "globos": [
+    "Half, in a little over two weeks."
+   ],
+   "alt": "A chart nosediving; Sat looking worried"
+  },
+  "102": {
+   "b": "March 2018.",
+   "t": "Lightning Labs and ACINQ release their first beta versions of the Lightning Network on Bitcoin's main network.",
+   "globos": [
+    "The lightning bolt hit the real network."
+   ],
+   "alt": "A lightning bolt between two nodes; Sat looking happy"
+  },
+  "103": {
+   "b": "November 14, 2018.",
+   "t": "The 6,000-dollar floor breaks. The total drop is now more than 80% from the late-2017 high.",
+   "globos": [
+    "The floor broke."
+   ],
+   "alt": "A floor breaking under a coin; Sat looking worried"
+  },
+  "104": {
+   "b": "December 6, 2018.",
+   "t": "Steam stops accepting bitcoin for games: it says it's slow, volatile and has high fees.",
+   "globos": [
+    "Not even good enough to buy games with."
+   ],
+   "alt": "A store sign: we no longer accept bitcoin; Sat looking worried"
+  },
+  "105": {
+   "b": "December 7, 2018.",
+   "t": "The price sinks below 3,300 dollars: a 15-month low and 76% less than a year earlier.",
+   "globos": [
+    "And it still hadn't hit bottom."
+   ],
+   "alt": "A chart on the ground with a very low floor; Sat looking worried"
+  },
+  "106": {
+   "b": "",
+   "t": "2018 was Bitcoin's worst year: it started at about 13,062 dollars and closed at 3,747. The network's total value fell from 280 billion to 56 billion dollars.",
+   "globos": [
+    "The worst year up to then."
+   ],
+   "alt": "Two coins, one big and one small, with an arrow between them; Sat looking thoughtful"
+  },
+  "107": {
+   "b": "January 2019.",
+   "t": "Bitrefill reports that it now gets more payments through the Lightning Network than through other cryptocurrencies.",
+   "globos": [
+    "Meanwhile, Lightning was being used."
+   ],
+   "alt": "A store with the Lightning bolt; Sat looking happy"
+  },
+  "108": {
+   "b": "May 7, 2019.",
+   "t": "Binance, the largest exchange at the time, is hacked: about 7,000 bitcoins are stolen, close to 41 million dollars.",
+   "globos": [
+    "An exchange, once again."
+   ],
+   "alt": "An open wallet with coins flying out; Sat looking worried"
+  },
+  "109": {
+   "b": "January 2019.",
+   "t": "Bitcoin starts the year at about 3,869 dollars. By mid-year the price had already bounced back strongly.",
+   "globos": [
+    "The year turned around."
+   ],
+   "alt": "A chart rising from the bottom; Sat looking happy"
+  },
+  "110": {
+   "b": "June 2019.",
+   "t": "Facebook unveils Libra, a digital currency to pay from Messenger and WhatsApp, backed by 28 companies and organizations. They planned to launch it in 2020.",
+   "globos": [
+    "Now the giant wants its own coin too."
+   ],
+   "alt": "A phone with a chat and a coin; Sat looking surprised"
+  },
+  "111": {
+   "b": "Late June 2019.",
+   "t": "With Libra in the news, Bitcoin came close to 13,000 dollars and hit an 18-month high.",
+   "globos": [
+    "An 18-month high."
+   ],
+   "alt": "A chart rising to 13,000 dollars; Sat looking surprised"
+  },
+  "112": {
+   "b": "",
+   "t": "Even with the crash, trading volume in 2018 grew 61% compared to 2017. The \"winter\" was in the price, not in the interest.",
+   "globos": [
+    "Getting through the winter is part of it too."
+   ],
+   "alt": "A block of ice with a coin inside and a flame; Sat looking happy"
+  },
+  "113": {
+   "b": "March 2020.",
+   "t": "The COVID-19 pandemic shakes markets all over the world, and cryptocurrencies are no exception.",
+   "globos": [
+    "The whole world in the red."
+   ],
+   "alt": "A globe with red arrows pointing down; Sat looking worried"
+  },
+  "114": {
+   "b": "March 12 and 13, 2020.",
+   "t": "In two days, Bitcoin loses about half its value: it starts the week above 9,000 dollars and at one point drops below 4,000.",
+   "globos": [
+    "By Friday, less than half."
+   ],
+   "alt": "A chart collapsing from 9,000 to less than 4,000 dollars; Sat looking worried"
+  },
+  "115": {
+   "b": "",
+   "t": "Friday closed with a recovery toward 5,400 dollars. Ethereum had fallen 46% and XRP almost 40% in the same blow.",
+   "globos": [
+    "It bounced, but it was a big scare."
+   ],
+   "alt": "A chart bouncing off the floor; Sat looking surprised"
+  },
+  "116": {
+   "b": "May 11, 2020.",
+   "t": "Third halving: the block reward drops from 12.5 to 6.25 bitcoins.",
+   "globos": [
+    "Third half. The clock keeps ticking."
+   ],
+   "alt": "A 12.5 BTC coin that becomes 6.25 BTC; Sat looking happy"
+  },
+  "117": {
+   "b": "July 27, 2020.",
+   "t": "The price passes 10,000 dollars again: it reached 10,944, almost triple the March low.",
+   "globos": [
+    "From 4,000 to more than 10,000."
+   ],
+   "alt": "A chart rising to 10,944 dollars; Sat looking happy"
+  },
+  "118": {
+   "b": "August 11, 2020.",
+   "t": "MicroStrategy, a publicly traded company, buys 21,454 bitcoins for 250 million dollars and adopts them as its main treasury reserve.",
+   "globos": [
+    "A listed company, with bitcoin in the vault."
+   ],
+   "alt": "An office building with a safe holding a coin; Sat looking surprised"
+  },
+  "119": {
+   "b": "October 21, 2020.",
+   "t": "PayPal announces that its US users will be able to buy, hold and sell bitcoin, Ethereum, bitcoin cash and litecoin.",
+   "globos": [
+    "Now, from a well-known app."
+   ],
+   "alt": "A phone with a wallet logo and coins; Sat looking surprised"
+  },
+  "120": {
+   "b": "",
+   "t": "PayPal also planned to let people pay with crypto at its 26 million merchants starting in early 2021.",
+   "globos": [
+    "Paying with bitcoin, almost like with anything else."
+   ],
+   "alt": "A shopping cart with a coin; Sat looking happy"
+  },
+  "121": {
+   "b": "November 30, 2020.",
+   "t": "Bitcoin sets a new all-time high, 19,850 dollars, beating the 2017 record.",
+   "globos": [
+    "Three years later, a new record."
+   ],
+   "alt": "A chart crossing the previous record line; Sat looking surprised"
+  },
+  "122": {
+   "b": "December 16, 2020.",
+   "t": "For the first time, one bitcoin passes 20,000 dollars.",
+   "globos": [
+    "Twenty thousand!"
+   ],
+   "alt": "A big US$20,000 price tag; Sat looking happy"
+  },
+  "123": {
+   "b": "December 31, 2020.",
+   "t": "Bitcoin nears 29,000 dollars, another record, and closes a year that had started with the March scare.",
+   "globos": [
+    "From the March scare to the December record."
+   ],
+   "alt": "A chart rising to almost 29,000 dollars; Sat looking surprised"
+  },
+  "124": {
+   "b": "",
+   "t": "In nine months, Bitcoin went from less than 4,000 dollars to almost 29,000. First it sank with the pandemic scare, and then it never stopped climbing.",
+   "globos": [
+    "What a year, huh?"
+   ],
+   "alt": "A melting block of ice and a coin peeking out; Sat looking happy"
+  },
+  "125": {
+   "b": "February 8, 2021.",
+   "t": "Tesla announces it bought 1.5 billion dollars in bitcoin and would start accepting it as payment for its cars. The price climbs to 44,141 dollars.",
+   "globos": [
+    "Now even cars are joining the party."
+   ],
+   "alt": "A red car with a Bitcoin coin; Sat looking surprised"
+  },
+  "126": {
+   "b": "April 14, 2021.",
+   "t": "Coinbase debuts on the Nasdaq valued at more than 100 billion dollars. Bitcoin had touched about 64,000 dollars a day earlier.",
+   "globos": [
+    "An exchange on the stock market. Who would've thought!"
+   ],
+   "alt": "A stock exchange building with a screen showing COIN; Sat looking happy"
+  },
+  "127": {
+   "b": "May 12, 2021.",
+   "t": "Tesla backtracks: it will no longer accept bitcoin because of the energy used by mining. The next day, the price falls about 12%.",
+   "globos": [
+    "It wanted me... and then it didn't."
+   ],
+   "alt": "The red car with a no sign over the coin; Sat looking worried"
+  },
+  "128": {
+   "b": "May 21, 2021.",
+   "t": "China's State Council calls for a crackdown on bitcoin mining and trading. The price drops more than 6%, now more than 40% below its peak.",
+   "globos": [
+    "China put the brakes on the miners."
+   ],
+   "alt": "A mining machine with a red X; Sat looking worried"
+  },
+  "129": {
+   "b": "June 2021.",
+   "t": "President Nayib Bukele announces that El Salvador will adopt bitcoin as legal tender. The Assembly passes the Bitcoin Law with 62 of 84 votes.",
+   "globos": [
+    "A whole country with bitcoin as official money!"
+   ],
+   "alt": "A flag with a Bitcoin coin in the middle; Sat looking surprised"
+  },
+  "130": {
+   "b": "September 7, 2021.",
+   "t": "The Bitcoin Law takes effect. The government buys 400 bitcoins (about 20.9 million dollars) and offers 30 dollars in bitcoin to anyone who uses the Chivo wallet.",
+   "globos": [
+    "Thirty dollars to give it a try."
+   ],
+   "alt": "A phone with the Chivo wallet and a 30-dollar gift; Sat looking happy"
+  },
+  "131": {
+   "b": "September 24, 2021.",
+   "t": "China's central bank declares all cryptocurrency activity illegal and promises tighter controls.",
+   "globos": [
+    "The second time China slams the door."
+   ],
+   "alt": "A Bitcoin coin with a giant no sign; Sat looking worried"
+  },
+  "132": {
+   "b": "October 2021.",
+   "t": "The Chivo wallet launches with problems: the app is switched off a few hours in to expand server capacity.",
+   "globos": [
+    "It went down within hours."
+   ],
+   "alt": "A phone with a loading icon and a maintenance sign; Sat looking worried"
+  },
+  "133": {
+   "b": "November 10, 2021.",
+   "t": "New record: about 68,990 dollars, close to 140% more than at the start of the year.",
+   "globos": [
+    "Record: almost 69 thousand."
+   ],
+   "alt": "A US$69,000 price tag; Sat looking happy"
+  },
+  "134": {
+   "b": "",
+   "t": "That same day it came out that US inflation was 6.2% a year. Many investors looked at Bitcoin as a possible hedge against inflation.",
+   "globos": [
+    "A hedge against inflation? That's what they said."
+   ],
+   "alt": "A dollar coin shrinking and a Bitcoin coin; Sat looking thoughtful"
+  },
+  "135": {
+   "b": "November 14, 2021.",
+   "t": "Taproot activates (block 709,632), Bitcoin's biggest upgrade in four years: more privacy and efficiency with Schnorr signatures.",
+   "globos": [
+    "New tools for Bitcoin."
+   ],
+   "alt": "A block with a padlock and a key; Sat looking happy"
+  },
+  "136": {
+   "b": "",
+   "t": "In one year, a car company, a listed exchange, a country and a superpower all took sides on Bitcoin. It wasn't a niche thing anymore.",
+   "globos": [
+    "Everyone has an opinion on Bitcoin now."
+   ],
+   "alt": "Four signs pointing at a coin; Sat looking thoughtful"
+  },
+  "137": {
+   "b": "May 7–12, 2022.",
+   "t": "TerraUSD (UST), an \"algorithmic stablecoin\" with no traditional reserves, loses its 1-dollar peg. A spiral of withdrawals begins.",
+   "globos": [
+    "It was supposed to always be worth one dollar."
+   ],
+   "alt": "A UST coin tipping below the 1-dollar line; Sat looking worried"
+  },
+  "138": {
+   "b": "May 12, 2022.",
+   "t": "LUNA, the coin that propped up UST, plunges 96% in one day and the next day is worth almost nothing. More than 40 billion dollars evaporate.",
+   "globos": [
+    "A coin fell to almost zero in two days."
+   ],
+   "alt": "A LUNA coin disintegrating; Sat looking worried"
+  },
+  "139": {
+   "b": "June 2022.",
+   "t": "The US Federal Reserve raises rates with its biggest hike in 28 years. Borrowing costs more and Coinbase cuts 18% of its staff.",
+   "globos": [
+    "Expensive money: nobody feels like taking risks."
+   ],
+   "alt": "An interest rate arrow pointing up and a layoffs sign; Sat looking thoughtful"
+  },
+  "140": {
+   "b": "June 13, 2022.",
+   "t": "Celsius, a platform with 1.7 million customers, freezes all withdrawals due to \"extreme market conditions\".",
+   "globos": [
+    "Again: I can't get my own money out."
+   ],
+   "alt": "A counter window locked with a padlock and a WITHDRAWALS FROZEN sign; Sat looking worried"
+  },
+  "141": {
+   "b": "June 18, 2022.",
+   "t": "Bitcoin falls below 20,000 dollars for the first time since December 2020. Ethereum drops under 1,000 dollars.",
+   "globos": [
+    "More than two thirds below the record."
+   ],
+   "alt": "A chart crossing down through the 20,000-dollar mark; Sat looking worried"
+  },
+  "142": {
+   "b": "",
+   "t": "An investment fund, 3AC, had lost hundreds of millions on LUNA. Since many crypto companies depended on funds like that, the losses spread in a chain reaction.",
+   "globos": [
+    "One domino after another."
+   ],
+   "alt": "Dominoes falling one after another; Sat looking thoughtful"
+  },
+  "143": {
+   "b": "July 13, 2022.",
+   "t": "Celsius files for bankruptcy (Chapter 11). It owed its customers 4.7 billion dollars and had a 1.2 billion shortfall.",
+   "globos": [
+    "The customers were creditors, not owners."
+   ],
+   "alt": "A BANKRUPTCY paper on a desk; Sat looking worried"
+  },
+  "144": {
+   "b": "November 2, 2022.",
+   "t": "CoinDesk publishes an article about the books of Alameda Research, FTX's sister firm: a big part of its assets were FTT, FTX's own token.",
+   "globos": [
+    "Something on the balance sheet doesn't add up."
+   ],
+   "alt": "A newspaper with a headline about Alameda and FTX; Sat looking thoughtful"
+  },
+  "145": {
+   "b": "November 7–9, 2022.",
+   "t": "Binance announces it will sell its FTT and customers rush to withdraw. On the 9th, FTX stops processing withdrawals.",
+   "globos": [
+    "Word got out, and by then it was too late."
+   ],
+   "alt": "A line of people in front of a closed FTX counter window; Sat looking worried"
+  },
+  "146": {
+   "b": "November 11, 2022.",
+   "t": "FTX, FTX US, Alameda Research and more than 100 affiliated companies file for bankruptcy in Delaware. FTX had more than a million users.",
+   "globos": [
+    "From giant to bankruptcy court in four days."
+   ],
+   "alt": "A building with a BANKRUPTCY sign; Sat looking worried"
+  },
+  "147": {
+   "b": "Late November 2022.",
+   "t": "With FTX and its fallout, Bitcoin touches about 15,480 dollars, its lowest level since November 2020.",
+   "globos": [
+    "A two-year low."
+   ],
+   "alt": "A chart hitting the floor at 15,480 dollars; Sat looking worried"
+  },
+  "148": {
+   "b": "December 12, 2022.",
+   "t": "Sam Bankman-Fried, founder of FTX, is arrested in the Bahamas. He was later convicted (November 2023) and sentenced to 25 years in prison (March 2024).",
+   "globos": [
+    "Companies failed. The Bitcoin network kept running."
+   ],
+   "alt": "A judge's gavel; Sat looking thoughtful"
+  },
+  "149": {
+   "b": "January 2023.",
+   "t": "Bitcoin starts the year just above 16,000 dollars, with the FTX hangover and at less than a quarter of its record.",
+   "globos": [
+    "We start the year in the basement."
+   ],
+   "alt": "A flat chart on the floor with the 16,000-dollar mark; Sat looking thoughtful"
+  },
+  "150": {
+   "b": "January 20, 2023.",
+   "t": "Casey Rodarmor announces that Ordinals is ready on the main network: it lets you inscribe images, text and other data on each satoshi.",
+   "globos": [
+    "Now every satoshi can carry a drawing!"
+   ],
+   "alt": "A satoshi with a small inscribed image; Sat looking surprised"
+  },
+  "151": {
+   "b": "",
+   "t": "The controversy began. Luke Dashjr said Ordinals was \"an attack on Bitcoin\"; Dan Held argued it increased demand for block space and fees.",
+   "globos": [
+    "Nobody agrees. Classic!"
+   ],
+   "alt": "Two opposing signs: attack and demand; Sat looking thoughtful"
+  },
+  "152": {
+   "b": "",
+   "t": "Rodarmor wanted to \"make Bitcoin fun again\" during the bear market. On the criticism about block space use, his answer was: \"YOLO. Let's find out.\"",
+   "globos": [
+    "Making it fun: mission accomplished."
+   ],
+   "alt": "A character with a paintbrush drawing on a coin; Sat looking happy"
+  },
+  "153": {
+   "b": "March 10–12, 2023.",
+   "t": "Silicon Valley Bank collapses and the government takes over Signature Bank. Days later, UBS buys Credit Suisse for about 3.2 billion dollars.",
+   "globos": [
+    "Real banks went down."
+   ],
+   "alt": "A bank with a crack running across its front; Sat looking worried"
+  },
+  "154": {
+   "b": "March 20, 2023.",
+   "t": "Bitcoin reaches 28,527 dollars, a nine-month high, and climbs 25% in one week in the middle of the banking crisis.",
+   "globos": [
+    "With the banks shaking, Bitcoin went up."
+   ],
+   "alt": "A chart rising sharply; Sat looking surprised"
+  },
+  "155": {
+   "b": "",
+   "t": "Some investors saw it as \"digital gold\", although the same article points out that historically Bitcoin has moved more like stocks than like gold.",
+   "globos": [
+    "Digital gold? It's still not clear."
+   ],
+   "alt": "A scale with a gold bar and a Bitcoin coin; Sat looking thoughtful"
+  },
+  "156": {
+   "b": "June 15, 2023.",
+   "t": "BlackRock applies for a spot bitcoin ETF, the iShares Bitcoin Trust, with Coinbase as custodian.",
+   "globos": [
+    "The investment giant asks for its ETF."
+   ],
+   "alt": "A stock exchange building with an application folder; Sat looking surprised"
+  },
+  "157": {
+   "b": "",
+   "t": "Until then, the SEC had blocked spot bitcoin ETFs. Other companies had filed applications and then withdrawn them, and Grayscale was suing the regulator.",
+   "globos": [
+    "Until now, the door was still shut."
+   ],
+   "alt": "A closed door with an SEC seal; Sat looking thoughtful"
+  },
+  "158": {
+   "b": "November 21, 2023.",
+   "t": "Binance agrees to pay 4.3 billion dollars to settle a US criminal case. Its founder, Changpeng Zhao, steps down and pleads guilty.",
+   "globos": [
+    "Another exchange, another record fine."
+   ],
+   "alt": "A judge's gavel on a pile of banknotes; Sat looking worried"
+  },
+  "159": {
+   "b": "December 31, 2023.",
+   "t": "Bitcoin closes the year at about 42,255 dollars, compared to just over 16,000 at the start: a rise of about 155%.",
+   "globos": [
+    "From 16 thousand to 42 thousand in one year."
+   ],
+   "alt": "A chart rising from 16,000 to 42,000 dollars; Sat looking happy"
+  },
+  "160": {
+   "b": "",
+   "t": "The year ended with Bitcoin up and a big open question: would spot ETFs finally be approved?",
+   "globos": [
+    "The best was yet to come."
+   ],
+   "alt": "A Bitcoin coin in front of a half-open door with light shining through; Sat looking happy"
+  },
+  "161": {
+   "b": "January 10, 2024.",
+   "t": "The SEC approves 11 spot bitcoin ETFs, including those from BlackRock, Grayscale and Fidelity. They start trading on the 11th.",
+   "globos": [
+    "At last! Bitcoin on the stock market, like any other stock."
+   ],
+   "alt": "A stock exchange building with a Bitcoin ETF sign; Sat looking happy"
+  },
+  "162": {
+   "b": "",
+   "t": "SEC chair Gary Gensler made it clear: they approved the listing and trading of those products, but \"we did not approve or endorse bitcoin\", and he urged caution about its risks.",
+   "globos": [
+    "Approving the product is not approving Bitcoin."
+   ],
+   "alt": "An approved stamp with a warning; Sat looking thoughtful"
+  },
+  "163": {
+   "b": "",
+   "t": "The price barely moved on the news: it was around 46,000 dollars, close to a two-year high.",
+   "globos": [
+    "All that waiting, and the price didn't even flinch?"
+   ],
+   "alt": "An almost flat chart near 46,000 dollars; Sat looking thoughtful"
+  },
+  "164": {
+   "b": "February–March 2024.",
+   "t": "The ETFs pull in money at full speed: on one day in March 14,706 BTC flow in (more than 1 billion dollars), and BlackRock sets a record of 849 million.",
+   "globos": [
+    "The money is pouring in!"
+   ],
+   "alt": "Coins falling through a funnel into a fund; Sat looking surprised"
+  },
+  "165": {
+   "b": "March 13, 2024.",
+   "t": "Bitcoin passes 73,000 dollars, a new all-time high, driven by money flowing into the ETFs.",
+   "globos": [
+    "A new record... and before the halving!"
+   ],
+   "alt": "A chart rising above 73,000 dollars; Sat looking happy"
+  },
+  "166": {
+   "b": "April 19, 2024.",
+   "t": "Fourth halving at block 840,000: the reward drops from 6.25 to 3.125 bitcoins.",
+   "globos": [
+    "Fourth half. That's four now."
+   ],
+   "alt": "A 6.25 BTC coin that becomes 3.125 BTC; Sat looking happy"
+  },
+  "167": {
+   "b": "",
+   "t": "After the halving, about 450 BTC are produced per day (before, about 900). Almost 95% of all the bitcoins that will ever exist will already have been mined, and the supply grows less than 1% a year.",
+   "globos": [
+    "Programmed scarcity, remember?"
+   ],
+   "alt": "A progress bar filled to 95 percent; Sat looking thoughtful"
+  },
+  "168": {
+   "b": "",
+   "t": "This halving was different: the ETFs had already taken in more than 12 billion dollars net, and Ordinals and Runes activity was pushing up the fees miners collect.",
+   "globos": [
+    "Miners earn more from fees."
+   ],
+   "alt": "A miner with a chest of fees; Sat looking thoughtful"
+  },
+  "169": {
+   "b": "November 5, 2024.",
+   "t": "US elections. On election day, Bitcoin was worth about 69,374 dollars.",
+   "globos": [
+    "Election day and Bitcoin at ~69,000."
+   ],
+   "alt": "A ballot box with a coin; Sat looking thoughtful"
+  },
+  "170": {
+   "b": "",
+   "t": "Donald Trump, now president-elect, had promised to make the US \"the crypto capital of the planet\" and to create a strategic bitcoin reserve. He named Paul Atkins, a crypto advocate, to chair the SEC, and Gensler said he would step down on January 20.",
+   "globos": [
+    "You could feel the regulatory winds changing."
+   ],
+   "alt": "An SEC chair's seat with a coin; Sat looking surprised"
+  },
+  "171": {
+   "b": "December 4–5, 2024.",
+   "t": "Bitcoin passes 100,000 dollars for the first time and reaches 103,713.",
+   "globos": [
+    "One hundred thousand dollars!"
+   ],
+   "alt": "A US$100,000 price tag; Sat looking happy"
+  },
+  "172": {
+   "b": "",
+   "t": "In 2024, Bitcoin more than doubled in value. It reached 100,000 dollars about two years after falling below 17,000 in the FTX crisis.",
+   "globos": [
+    "From 17 thousand to 100 thousand in two years."
+   ],
+   "alt": "A chart rising from 17,000 to 100,000 dollars; Sat looking happy"
+  },
+  "173": {
+   "b": "January 29, 2025.",
+   "t": "El Salvador amends its Bitcoin Law as part of its deal with the IMF (a 1.4 billion dollar loan): accepting bitcoin becomes voluntary and it can't be used to pay taxes. The government keeps its bitcoins.",
+   "globos": [
+    "It's no longer mandatory, but the country keeps its bitcoins."
+   ],
+   "alt": "A flag with a Bitcoin coin and an optional sign; Sat looking thoughtful"
+  },
+  "174": {
+   "b": "February 21, 2025.",
+   "t": "The Bybit exchange is hacked: about 1.5 billion dollars in Ethereum is stolen, the biggest crypto theft up to then. It is blamed on North Korean hackers.",
+   "globos": [
+    "The biggest crypto theft in history."
+   ],
+   "alt": "An empty safe with a shadow sneaking away; Sat looking worried"
+  },
+  "175": {
+   "b": "March 6, 2025.",
+   "t": "Donald Trump signs an executive order creating a Strategic Bitcoin Reserve and a stockpile of other digital assets, made up of seized bitcoin, with no purchases and at no cost to the budget.",
+   "globos": [
+    "The US government creates its bitcoin reserve."
+   ],
+   "alt": "A chest with a government seal and a Bitcoin coin; Sat looking surprised"
+  },
+  "176": {
+   "b": "",
+   "t": "Other steps in the same direction: Senator Cynthia Lummis proposed buying 1 million BTC over five years, and Texas and New Hampshire passed state reserve measures.",
+   "globos": [
+    "Every state wants its own reserve."
+   ],
+   "alt": "A map of states with coins; Sat looking thoughtful"
+  },
+  "177": {
+   "b": "July 18, 2025.",
+   "t": "Trump signs the GENIUS Act, the first federal framework for stablecoins in the US: it requires 100% reserves in dollars or short-term Treasury bills.",
+   "globos": [
+    "Clear rules for stablecoins."
+   ],
+   "alt": "A stablecoin backed by banknotes; Sat looking happy"
+  },
+  "178": {
+   "b": "",
+   "t": "The law also requires being able to freeze or burn stablecoins when appropriate, and gives holders priority if the issuer goes bankrupt.",
+   "globos": [
+    "It protects customers, but it can freeze."
+   ],
+   "alt": "A stablecoin with a padlock and a shield; Sat looking thoughtful"
+  },
+  "179": {
+   "b": "October 2025.",
+   "t": "Bitcoin sets its all-time high: 126,198 dollars.",
+   "globos": [
+    "A new record!"
+   ],
+   "alt": "A US$126,198 price tag; Sat looking happy"
+  },
+  "180": {
+   "b": "October 10, 2025.",
+   "t": "Trump announces a 100% tariff on Chinese imports. About 19 billion dollars in bets are liquidated and Bitcoin falls 14%, from about 122,500 to 104,800.",
+   "globos": [
+    "The biggest liquidation in crypto history."
+   ],
+   "alt": "A chart that suddenly drops with lots of red candles; Sat looking worried"
+  },
+  "181": {
+   "b": "",
+   "t": "Bitcoin closed 2025 about 30% below its October high.",
+   "globos": [
+    "The year ended far from the peak."
+   ],
+   "alt": "A chart falling from a peak; Sat looking thoughtful"
+  },
+  "182": {
+   "b": "February 5–6, 2026.",
+   "t": "Bitcoin falls 15% in one day and comes close to 60,000 dollars (60,074). One analysis blames it on leveraged bets unwinding, plus weak tech stocks and fears about quantum computing.",
+   "globos": [
+    "Back in the basement, but this time from 126 down to 60 thousand."
+   ],
+   "alt": "A chart sinking to 60,000 dollars; Sat looking worried"
+  },
+  "183": {
+   "b": "June 3–4, 2026.",
+   "t": "Bitcoin falls again, down to about 63,000 dollars: 13 straight days of ETF outflows and capital moving toward artificial intelligence.",
+   "globos": [
+    "After the bounce, another drop."
+   ],
+   "alt": "A chart dropping again and an ETF outflows sign; Sat looking worried"
+  },
+  "184": {
+   "b": "September 25, 2026.",
+   "t": "Bitcoin trades at about 84,400 dollars: 5.9% more than a month earlier, but 22.6% less than a year before.",
+   "globos": [
+    "And the story is still being written."
+   ],
+   "alt": "A chart rising from the floor but still below the record; Sat looking thoughtful"
+  },
+  "185": {
+   "b": "October 2011.",
+   "t": "The \"cepo\" begins: restrictions on buying dollars. It gets tighter in 2012–2013, loosens in 2014 and is lifted in December 2015.",
+   "globos": [
+    "Buying dollars in Argentina: a classic."
+   ],
+   "alt": "A dollar behind bars; Sat looking thoughtful"
+  },
+  "186": {
+   "b": "September 1, 2019.",
+   "t": "Macri's government brings back the cepo: a limit of 10,000 dollars per month per person, after losing more than 13 billion in reserves in August.",
+   "globos": [
+    "The cepo is back."
+   ],
+   "alt": "A sign with a 10,000-dollar limit; Sat looking worried"
+  },
+  "187": {
+   "b": "October 28, 2019.",
+   "t": "The limit is cut to just 200 dollars a month for savings and spending abroad.",
+   "globos": [
+    "From 10 thousand to 200 in two months."
+   ],
+   "alt": "A sign with a 200-dollar limit; Sat looking worried"
+  },
+  "188": {
+   "b": "September 2020.",
+   "t": "The official dollar went from 58.41 to 78.50 pesos in a year, and the \"blue\" (parallel) dollar from 63.50 to 133. In July alone, 3.9 million people bought dollars, a record.",
+   "globos": [
+    "Two dollars, and one of them almost double."
+   ],
+   "alt": "Two tags: official dollar and blue dollar, with a huge gap; Sat looking surprised"
+  },
+  "189": {
+   "b": "January 2024.",
+   "t": "INDEC, Argentina's statistics agency, reports that 2023 inflation was 211.4%, the highest since the 1989–1991 hyperinflation. In December alone prices rose 25.5%.",
+   "globos": [
+    "Prices wait for no one."
+   ],
+   "alt": "A chart with a curve rising almost vertically; Sat looking worried"
+  },
+  "190": {
+   "b": "",
+   "t": "With that inflation and a peso losing value, Chainalysis describes stablecoins as a hedge against local macroeconomic risk.",
+   "globos": [
+    "Escaping the peso: the national sport."
+   ],
+   "alt": "A shrinking peso and a dollar and a crypto coin to one side; Sat looking thoughtful"
+  },
+  "191": {
+   "b": "",
+   "t": "Between July 2022 and June 2025, Argentina received 93.9 billion dollars in crypto, according to Chainalysis: second place in Latin America.",
+   "globos": [
+    "Second in Latin America."
+   ],
+   "alt": "A podium with Argentina on the second step; Sat looking happy"
+  },
+  "192": {
+   "b": "",
+   "t": "More than half of peso purchases on exchanges (July 2024–June 2025) were stablecoins, digital dollars. Local platforms like Ripio and SatoshiTango make access easier.",
+   "globos": [
+    "Heads up: in Argentina, more digital dollars than bitcoin."
+   ],
+   "alt": "Two coins, a dollar stablecoin and a bitcoin, and signs for local exchanges; Sat looking thoughtful"
+  },
+  "193": {
+   "b": "March 2024.",
+   "t": "The CNV, Argentina's securities regulator, creates the registry of Virtual Asset Service Providers (PSAV), a registry for oversight by the financial intelligence unit (UIF) that does not work as a CNV license.",
+   "globos": [
+    "First step: sign up in a registry."
+   ],
+   "alt": "A registry book with a magnifying glass; Sat looking thoughtful"
+  },
+  "194": {
+   "b": "February 14, 2025.",
+   "t": "Javier Milei promotes the $LIBRA cryptocurrency on social media. Its price collapses more than 85% in a few hours. About 44,000 people lost money, 1,329 of them in Argentina. Judge Servini opened an investigation on the 17th.",
+   "globos": [
+    "From tweet to collapse in hours."
+   ],
+   "alt": "A chart that shoots up and plummets; Sat looking worried"
+  },
+  "195": {
+   "b": "March 14, 2025.",
+   "t": "The CNV (General Resolution 1058) adds requirements for PSAVs: mandatory registration, minimum capital, keeping company and customer funds separate, and verifying identity.",
+   "globos": [
+    "More rules for the platforms."
+   ],
+   "alt": "A CNV stamp and a list of requirements; Sat looking thoughtful"
+  },
+  "196": {
+   "b": "April 14, 2025.",
+   "t": "Economy minister Luis Caputo announces the end of the cepo for individuals: people can buy dollars at the official exchange rate, without the 30% surcharge.",
+   "globos": [
+    "The end of the cepo, after almost 6 years."
+   ],
+   "alt": "A gate swinging open with a free dollar; Sat looking happy"
+  },
+  "197": {
+   "b": "Hash.",
+   "t": "It's a mathematical function: you give it any data (a word, a book, a photo) and it returns a fixed-size \"fingerprint\". Bitcoin uses SHA-256: 256 bits, that is, 64 hexadecimal characters.",
+   "globos": [
+    "A fingerprint for data."
+   ],
+   "alt": "A word goes into a machine and a fingerprint of letters and numbers comes out"
+  },
+  "198": {
+   "b": "Deterministic.",
+   "t": "The same data always gives the same fingerprint. If you hash \"hola\" a thousand times, you get the same result a thousand times.",
+   "globos": [
+    "Always the same. Predictable."
+   ],
+   "alt": "The word hola, twice, gives exactly the same fingerprint"
+  },
+  "199": {
+   "b": "The avalanche effect.",
+   "t": "Change a single letter (\"hola\" to \"Hola\") and the fingerprint changes completely: there's no way to tell they were almost the same.",
+   "globos": [
+    "One letter and everything changes!"
+   ],
+   "alt": "Hola and hola, with different capitalization, give completely different fingerprints"
+  },
+  "200": {
+   "b": "One way only.",
+   "t": "From the fingerprint you can't get back to the original data. The only way is to try data until something matches, and with 256 bits that's not feasible.",
+   "globos": [
+    "Easy to do. Impossible to undo."
+   ],
+   "alt": "A one-way arrow and a crossed-out return arrow"
+  },
+  "201": {
+   "b": "Verifying.",
+   "t": "It's useful for files: if a single byte of a document changes, the fingerprint no longer matches. That way any tampering gets caught.",
+   "globos": [
+    "If something changes, it shows."
+   ],
+   "alt": "Two documents, one with a green check mark and an altered one with a red X"
+  },
+  "202": {
+   "b": "Twice in a row.",
+   "t": "Bitcoin applies SHA-256 twice in a row to identify blocks and transactions. It's an extra layer of safety inherited from its design.",
+   "globos": [
+    "Two passes, just in case."
+   ],
+   "alt": "Data going through two SHA-256 boxes in a row"
+  },
+  "203": {
+   "b": "Addresses.",
+   "t": "To create an address, the public key is hashed too: first SHA-256 and then RIPEMD-160. The result is a short fingerprint of that key.",
+   "globos": [
+    "One more hash, to make it shorter."
+   ],
+   "alt": "A public key going through two hash functions and producing a short fingerprint"
+  },
+  "204": {
+   "b": "Mining.",
+   "t": "Mining means searching for a hash that starts with lots of zeros. There's no shortcut: you have to try and try again. The genesis block (the first one, from January 3, 2009) already had 10 zeros at the start.",
+   "globos": [
+    "So much work behind one hash!"
+   ],
+   "alt": "The genesis block hash with ten zeros highlighted at the start"
+  },
+  "205": {
+   "b": "A block.",
+   "t": "It's a bundle of transactions plus an 80-byte header. The header stores the version, the hash of the previous block, a summary of the transactions, the time, the difficulty and a number called the nonce.",
+   "globos": [
+    "A bundle with a label."
+   ],
+   "alt": "A block with its header and list of transactions"
+  },
+  "206": {
+   "b": "The previous hash.",
+   "t": "Each block includes the hash of the previous one. That chains them together: that's why it's called a blockchain.",
+   "globos": [
+    "Link by link."
+   ],
+   "alt": "Three blocks joined by chain links"
+  },
+  "207": {
+   "b": "The link breaks.",
+   "t": "If someone alters an old block, its hash changes and the link with all the following blocks breaks. To cheat, you'd have to redo the work of all of them, faster than the rest of the network.",
+   "globos": [
+    "Changing the past costs a fortune."
+   ],
+   "alt": "A chain with a broken link"
+  },
+  "208": {
+   "b": "One block every 10 minutes.",
+   "t": "That's what the network aims for, on average. Every 2,016 blocks (about two weeks) the difficulty adjusts to keep that pace.",
+   "globos": [
+    "Ten minutes, more or less."
+   ],
+   "alt": "A clock with a block"
+  },
+  "209": {
+   "b": "The genesis block:",
+   "t": "the very first one, mined on January 3, 2009. It includes a message from that day's edition of The Times about a second bank bailout.",
+   "globos": [
+    "The first block, with a message."
+   ],
+   "alt": "A golden block numbered zero with a newspaper"
+  },
+  "210": {
+   "b": "Merkle tree.",
+   "t": "A block's transactions are summarized in a single hash with a Merkle tree: they're hashed in pairs, and those hashes in pairs again, until you reach a \"root\".",
+   "globos": [
+    "Thousands of transactions, one single summary."
+   ],
+   "alt": "A tree of hashes that comes together at a root"
+  },
+  "211": {
+   "b": "Size limit.",
+   "t": "Each block has a size limit: 4 million \"weight units\" (since SegWit). That's why space is scarce and transactions compete to get in.",
+   "globos": [
+    "You have to wait in line."
+   ],
+   "alt": "A block with transactions that don't all fit"
+  },
+  "212": {
+   "b": "Confirmations.",
+   "t": "Each block stacked on top adds one confirmation. The rule of thumb is to wait for about 6 (around an hour) for large amounts, but it isn't a law.",
+   "globos": [
+    "The more, the safer."
+   ],
+   "alt": "Stacked blocks numbered one to six"
+  },
+  "213": {
+   "b": "Private key.",
+   "t": "The private key is a huge secret number (256 bits), chosen at random. Whoever knows it controls the bitcoins linked to it. It's never shared.",
+   "globos": [
+    "You don't show this to anyone."
+   ],
+   "alt": "A golden key inside a padlock"
+  },
+  "214": {
+   "b": "Public key.",
+   "t": "The public key is calculated from the private one using elliptic curve math (secp256k1). Going from one to the other is easy; going back is practically impossible.",
+   "globos": [
+    "From one to the other, yes. Backwards, no."
+   ],
+   "alt": "A private key turning into a public key with a one-way arrow"
+  },
+  "215": {
+   "b": "Address.",
+   "t": "The address comes from the public key, and it's what you share so people can pay you. It's like a bank account number: you can hand it out safely.",
+   "globos": [
+    "You can share your address without fear."
+   ],
+   "alt": "A sign with a Bitcoin address"
+  },
+  "216": {
+   "b": "An analogy:",
+   "t": "the address is your mailbox, with a slot so anyone can drop something in. The private key is the one that opens the mailbox. Whoever has it takes what's inside.",
+   "globos": [
+    "Open mailbox, key kept safe."
+   ],
+   "alt": "A mailbox with a key next to it"
+  },
+  "217": {
+   "b": "Digital signature.",
+   "t": "To spend, you sign the transaction with your private key. The signature proves you're the owner, and anyone can check it with the public key without knowing the private one.",
+   "globos": [
+    "I sign it. Nobody else can."
+   ],
+   "alt": "A signed transaction being verified with a public key"
+  },
+  "218": {
+   "b": "Seed phrase.",
+   "t": "The seed is a list of 12 or 24 words (BIP-39 standard) that can rebuild every key in a wallet. It recovers everything, so it's kept offline.",
+   "globos": [
+    "Twelve words worth a fortune."
+   ],
+   "alt": "A list of twelve numbered words"
+  },
+  "219": {
+   "b": "Custody:",
+   "t": "with an exchange, they keep your keys. With your own wallet, you keep them. As the saying goes, \"not your keys, not your coins\": if you don't have the keys, you depend on someone else.",
+   "globos": [
+    "Two models, two risks."
+   ],
+   "alt": "Two safes, one belonging to an exchange and one of your own"
+  },
+  "220": {
+   "b": "There's no \"forgot my password\".",
+   "t": "If you lose the private key or the seed, the bitcoins become inaccessible forever. Part of the supply is estimated to be lost.",
+   "globos": [
+    "No key, no way back."
+   ],
+   "alt": "A broken key and a trapped coin"
+  },
+  "221": {
+   "b": "Transactions.",
+   "t": "A transaction consumes inputs and creates outputs. Bitcoin doesn't keep account balances: what exists are unspent outputs, called UTXOs.",
+   "globos": [
+    "Inputs, outputs. That's it."
+   ],
+   "alt": "A transaction with inputs on the left and outputs on the right"
+  },
+  "222": {
+   "b": "0.7 in change.",
+   "t": "Like paying with a big bill: if you have a 1 BTC UTXO and want to pay 0.3, the transaction creates an output of 0.3 for the other person and 0.7 in change to an address of yours.",
+   "globos": [
+    "Like paying with a big bill."
+   ],
+   "alt": "A bitcoin splitting into a payment and change"
+  },
+  "223": {
+   "b": "Fees.",
+   "t": "The fee is the difference between what goes in and what comes out: the miner keeps it. It depends on the transaction's size in bytes, not on how much money it moves.",
+   "globos": [
+    "You pay for space, not for the amount."
+   ],
+   "alt": "A scale where one input weighs a little more than the outputs"
+  },
+  "224": {
+   "b": "Broadcasting.",
+   "t": "After signing it, the wallet sends the transaction to a node, which relays it to other nodes until it reaches the whole network in seconds.",
+   "globos": [
+    "In seconds, all over the world."
+   ],
+   "alt": "A transaction hopping from node to node"
+  },
+  "225": {
+   "b": "Mempool.",
+   "t": "Before getting into a block, transactions wait in the mempool: each node's waiting room.",
+   "globos": [
+    "Everyone waiting for their turn."
+   ],
+   "alt": "A waiting room with transactions in line"
+  },
+  "226": {
+   "b": "Highest fee first.",
+   "t": "Miners build the block by choosing the transactions that pay the highest fee for their space. If the network is congested, fees go up.",
+   "globos": [
+    "Whoever pays more goes first."
+   ],
+   "alt": "Transactions with coins of different fees, the highest ones first"
+  },
+  "227": {
+   "b": "Confirmed.",
+   "t": "When the transaction gets into a block, it's confirmed. With every new block on top, reversing it gets harder, until it's practically irreversible.",
+   "globos": [
+    "It's confirmed now."
+   ],
+   "alt": "A transaction inside a block with a check mark"
+  },
+  "228": {
+   "b": "Double spending:",
+   "t": "spending the same coins twice. Bitcoin prevents it: if two transactions use the same UTXO, only one gets into the chain; the other is invalidated.",
+   "globos": [
+    "Only one version wins."
+   ],
+   "alt": "Two transactions with the same coins, one of them crossed out"
+  },
+  "229": {
+   "b": "Nodes.",
+   "t": "A node is a computer running the Bitcoin software. It keeps a copy of the chain and checks every transaction and every block on its own.",
+   "globos": [
+    "I check everything myself."
+   ],
+   "alt": "A computer with a check mark and a copy of the chain"
+  },
+  "230": {
+   "b": "Decentralized.",
+   "t": "The network is decentralized: there are thousands of nodes all over the world and none of them is in charge. The rules hold because every node applies them equally.",
+   "globos": [
+    "Nobody's in charge, everyone verifies."
+   ],
+   "alt": "Many nodes connected to each other in a network"
+  },
+  "231": {
+   "b": "Rejected.",
+   "t": "A full node rejects anything that breaks the rules (a fake signature, a double payment, too big a reward), even if it comes from a powerful miner.",
+   "globos": [
+    "The rules are in charge, not power."
+   ],
+   "alt": "An invalid block rejected by a node"
+  },
+  "232": {
+   "b": "Miners.",
+   "t": "A miner gathers transactions into a block and tries numbers (the nonce) over and over, until it finds a header hash below the network's target.",
+   "globos": [
+    "Try, try and try again."
+   ],
+   "alt": "A miner trying nonces and looking for a hash with zeros"
+  },
+  "233": {
+   "b": "Proof of work:",
+   "t": "finding the right hash takes an enormous effort, but checking it is instant for any node. That's how the work is proven.",
+   "globos": [
+    "Hard to do. Easy to verify."
+   ],
+   "alt": "A scale: hard to do, easy to check"
+  },
+  "234": {
+   "b": "Difficulty.",
+   "t": "The difficulty adjusts every 2,016 blocks: if blocks arrive faster, it goes up; if they arrive slower, it goes down. That keeps the pace at about 10 minutes.",
+   "globos": [
+    "The network regulates itself."
+   ],
+   "alt": "A difficulty dial"
+  },
+  "235": {
+   "b": "The 51% attack.",
+   "t": "Attacking the network would require controlling more than half of the computing power: a huge cost in equipment and electricity, and what it can do is limited by the nodes' rules.",
+   "globos": [
+    "Cheating is expensive and barely pays off."
+   ],
+   "alt": "A scale with 51 percent"
+  },
+  "236": {
+   "b": "Pools.",
+   "t": "Today mining is done with specialized machines (ASICs) and almost always in pools: groups of miners who combine computing power and split the reward according to what each one contributes.",
+   "globos": [
+    "Together, you get paid more often."
+   ],
+   "alt": "Several miners splitting a reward"
+  },
+  "237": {
+   "b": "The reward.",
+   "t": "Each block pays a reward: new coins (the subsidy) plus the transaction fees. It's the only way new bitcoins come into existence.",
+   "globos": [
+    "That's how new bitcoins are born."
+   ],
+   "alt": "A block releasing new coins"
+  },
+  "238": {
+   "b": "Halving:",
+   "t": "every 210,000 blocks (about four years) the subsidy is cut in half. It started at 50 bitcoins per block in 2009 and today it's 3.125.",
+   "globos": [
+    "Every four years, half."
+   ],
+   "alt": "Bar chart with the block reward halving every four years"
+  },
+  "239": {
+   "b": "",
+   "t": "The halvings happened on November 28, 2012, July 9, 2016, May 11, 2020 and April 20, 2024. The next one is expected around April 2028, at block 1,050,000.",
+   "globos": [
+    "An event scheduled from the very beginning."
+   ],
+   "alt": "Timeline with the five halvings"
+  },
+  "240": {
+   "b": "Less than 1%.",
+   "t": "The 50-bitcoin subsidy of 2009 went down to 25, 12.5, 6.25 and 3.125. Since 2024, new issuance each year is less than 1% of the existing supply.",
+   "globos": [
+    "Fewer and fewer new coins."
+   ],
+   "alt": "A big coin shrinking in four steps"
+  },
+  "241": {
+   "b": "Slower and slower.",
+   "t": "Since every halving cuts issuance, the supply grows more and more slowly: by 2012, 50% had been issued; by 2016, 75%; by 2020, 87.5%; and so on.",
+   "globos": [
+    "It goes up, but slower each time."
+   ],
+   "alt": "A curve of issued supply flattening out"
+  },
+  "242": {
+   "b": "The cap is 21 million.",
+   "t": "On March 9, 2026 the 20 million mark was reached (block 939,999). Less than a million remain, and issuing them will take about 114 years: the last satoshi would be mined around 2140.",
+   "globos": [
+    "Almost all of it has been mined."
+   ],
+   "alt": "An almost full bar showing 20 million out of 21"
+  },
+  "243": {
+   "b": "Fees.",
+   "t": "When the subsidy gets very small, miners will depend mostly on fees. How security will be paid for in the long run is an open debate among developers.",
+   "globos": [
+    "An open question for the future."
+   ],
+   "alt": "A shrinking subsidy and growing fees"
+  },
+  "244": {
+   "b": "In balance:",
+   "t": "issuance known in advance, with no surprises and no central bank decisions. It's one of the reasons it gets compared to digital gold.",
+   "globos": [
+    "Scarcity with rules."
+   ],
+   "alt": "A coin and a scale next to a gold bar"
+  },
+  "245": {
+   "b": "Who holds the bitcoins?",
+   "t": "A rough map of the 21 million possible. The categories come from public estimates from September 2026 and partly overlap, so it's an approximate snapshot.",
+   "globos": [],
+   "alt": "Pie chart with the distribution of bitcoins by type of holder"
+  },
+  "246": {
+   "b": "Satoshi:",
+   "t": "about 1.1 million BTC (approx. 5%) are attributed to Satoshi, mined in the first months. Those coins have never moved.",
+   "globos": [
+    "Untouched since the beginning."
+   ],
+   "alt": "A golden coin with a silhouette and a padlock"
+  },
+  "247": {
+   "b": "Lost:",
+   "t": "an estimated 3.7 million BTC (about 18%) became inaccessible because of lost keys. It's an estimate with a wide margin: other sources give different figures.",
+   "globos": [
+    "Lost keys, lost coins."
+   ],
+   "alt": "A broken key next to a gray coin"
+  },
+  "248": {
+   "b": "Still to be mined:",
+   "t": "with 20.09 million issued (estimated), about 0.91 million remain to be mined, 4.3% of the 21 million cap.",
+   "globos": [
+    "Just a little left to mine."
+   ],
+   "alt": "An almost complete bar with a small empty piece"
+  },
+  "249": {
+   "b": "ETFs and funds:",
+   "t": "about 1.49 million BTC (7%). BlackRock's IBIT alone holds around 799,000, the largest of the ETFs.",
+   "globos": [
+    "Bitcoin inside Wall Street."
+   ],
+   "alt": "A basket of coins with the letters ETF"
+  },
+  "250": {
+   "b": "Companies:",
+   "t": "about 1.75 million (public 1.21 M, private 0.44 M and miners 0.10 M). Strategy (formerly MicroStrategy) is the largest, with about 846,000 BTC.",
+   "globos": [
+    "Companies are stacking too."
+   ],
+   "alt": "An office building with a coin"
+  },
+  "251": {
+   "b": "Governments:",
+   "t": "about 0.52 million (2.5%), mostly from seizures. Depending on the source, the US would hold between 198,000 and 325,000; the UK, about 61,000; and El Salvador, about 7,200.",
+   "globos": [
+    "Not much, but not nothing."
+   ],
+   "alt": "A building with columns and coins"
+  },
+  "252": {
+   "b": "Exchanges:",
+   "t": "they hold about 2 million BTC in total (a rough estimate). Careful: part of what they hold belongs to their customers and to ETFs, so some sources count it more than once.",
+   "globos": [
+    "Not all of it is theirs."
+   ],
+   "alt": "A safe labeled exchange"
+  },
+  "253": {
+   "b": "Individuals and whales:",
+   "t": "the rest, about 45%. \"Whales\" are addresses with more than 1,000 BTC, but an address isn't a person: it can be a fund, an exchange wallet or someone with lots of keys.",
+   "globos": [
+    "An address is not a person."
+   ],
+   "alt": "A whale with a coin"
+  },
+  "254": {
+   "b": "How to read the pie:",
+   "t": "these are estimates, with sources that disagree and categories that overlap. It shows the order of magnitude, not an exact census. Sources: BitcoinTreasuries, Arkham, The Block.",
+   "globos": [
+    "Order of magnitude, not a census."
+   ],
+   "alt": "A magnifying glass over a pie chart"
+  }
+ },
+ "arte": {
+  "% del suministro emitido": "% of supply issued",
+  "&gt; US$ 9.000": "&gt; US$9,000",
+  "&lt; 14.000": "&lt; 14,000",
+  "&lt; 17.000": "&lt; 17,000",
+  "&lt; 3.300": "&lt; 3,300",
+  "&lt; 4.000": "&lt; 4,000",
+  "(las llaves": "(the keys",
+  "(regla práctica)": "(rule of thumb)",
+  "+25 % semanal": "+25% in a week",
+  "+US$ 1.000": "+US$1,000",
+  "0,01 para el minero": "0.01 for the miner",
+  "1 BTC = US$ 1": "1 BTC = US$1",
+  "1 satoshi = 1 lienzo": "1 satoshi = 1 canvas",
+  "1.309 BTC": "1,309 BTC",
+  "1.500 M": "1,500 M",
+  "10 ceros = mucho trabajo": "10 zeros = lots of work",
+  "10.000 BTC = 2 pizzas": "10,000 BTC = 2 pizzas",
+  "10.000 BTC ≈ US$ 41": "10,000 BTC ≈ US$41",
+  "11 may 2020": "May 11, 2020",
+  "12,5 BTC": "12.5 BTC",
+  "13 días de salidas": "13 days of outflows",
+  "20 M de 21 M": "20 M of 21 M",
+  "20 abr 2024": "Apr 20, 2024",
+  "2028: estimado": "2028: estimated",
+  "21 M posibles = 100 %": "21 M possible = 100%",
+  "211,4 % en 2023": "211.4% in 2023",
+  "28 nov 2012": "Nov 28, 2012",
+  "3,125 BTC": "3.125 BTC",
+  "6 ≈ 1 hora": "6 ≈ 1 hour",
+  "6,25 BTC": "6.25 BTC",
+  "7.000 BTC": "7,000 BTC",
+  "9 jul 2016": "Jul 9, 2016",
+  "9 págs.": "9 pages",
+  "APROBADO": "APPROVED",
+  "BTC creados de la nada": "BTC created out of thin air",
+  "BTC faltantes": "BTC missing",
+  "BTC nuevos por bloque": "new BTC per block",
+  "BTC robados": "BTC stolen",
+  "Bitcoin · un bloque cada 10 min": "Bitcoin · one block every 10 min",
+  "CERRADO": "CLOSED",
+  "CONGELADOS": "FROZEN",
+  "ETFs y fondos": "ETFs and funds",
+  "Empresas": "Companies",
+  "Exchanges (aprox.)": "Exchanges (approx.)",
+  "FTX · cerrado": "FTX · closed",
+  "Faltan minar": "Still to mine",
+  "Gobiernos": "Governments",
+  "INCAUTADO": "SEIZED",
+  "Individuos/ballenas": "Individuals/whales",
+  "Kiosco A": "Shop A",
+  "Kiosco B": "Shop B",
+  "Litecoin · un bloque cada 2,5 min": "Litecoin · one block every 2.5 min",
+  "MAYO": "MAY",
+  "Más uso,": "More use,",
+  "PAUSADOS": "PAUSED",
+  "Perdidas (est.)": "Lost (est.)",
+  "QUIEBRA": "BANKRUPT",
+  "RETIROS": "WITHDRAWALS",
+  "Reserva Estratégica": "Strategic Reserve",
+  "The Times · 03/01/2009": "The Times · Jan 3, 2009",
+  "The Times, 3/1/2009": "The Times, Jan 3, 2009",
+  "US$ 0,008": "US$0.008",
+  "US$ 0,01": "US$0.01",
+  "US$ 0,08": "US$0.08",
+  "US$ 1": "US$1",
+  "US$ 1,00": "US$1.00",
+  "US$ 1.000": "US$1,000",
+  "US$ 10.000": "US$10,000",
+  "US$ 100": "US$100",
+  "US$ 100.000": "US$100,000",
+  "US$ 126.198": "US$126,198",
+  "US$ 13.062": "US$13,062",
+  "US$ 2.000": "US$2,000",
+  "US$ 20.000": "US$20,000",
+  "US$ 200": "US$200",
+  "US$ 30": "US$30",
+  "US$ 30+": "US$30+",
+  "US$ 4,70": "US$4.70",
+  "US$ 5.000": "US$5,000",
+  "US$ 69.000": "US$69,000",
+  "USD en": "USD in",
+  "VENDIDO": "SOLD",
+  "Ya no aceptamos": "We no longer accept",
+  "abr 2028 (est.)": "Apr 2028 (est.)",
+  "alta": "high",
+  "anterior · resumen": "previous · summary",
+  "aparte": "separate",
+  "ataque!": "attack!",
+  "baja": "low",
+  "bc1q… (tu dirección)": "bc1q… (your address)",
+  "bloque": "block",
+  "bloque 1.050.000": "block 1,050,000",
+  "bloque 210.000": "block 210,000",
+  "bloque 420.000": "block 420,000",
+  "bloque 481.824": "block 481,824",
+  "bloque 630.000": "block 630,000",
+  "bloque 709.632": "block 709,632",
+  "bloque 840.000": "block 840,000",
+  "bloques": "blocks",
+  "cada uno apunta al anterior": "each one points to the previous one",
+  "carísimo de conseguir": "very costly to obtain",
+  "casi": "almost",
+  "ciegas": "signatures",
+  "comisiones": "fees",
+  "confianza": "trust",
+  "confirmaciones": "confirmations",
+  "dato": "data",
+  "datos": "data",
+  "de 8 MB": "of 8 MB",
+  "de BTC": "of BTC",
+  "de Bitcoin": "of Bitcoin",
+  "descartado": "discarded",
+  "difícil": "hard",
+  "doble SHA-256": "double SHA-256",
+  "en mantenimiento": "under maintenance",
+  "en pocos días": "in a few days",
+  "encabezado": "header",
+  "entrada": "input",
+  "entradas − salidas = comisión": "inputs − outputs = fee",
+  "faltan menos de 1 M": "less than 1 M left",
+  "faltan ≈ 0,91 M (4,3 %)": "≈ 0.91 M left (4.3%)",
+  "febrero → junio": "February → June",
+  "fin 2025: −30 %": "end of 2025: −30%",
+  "firmas": "blind",
+  "fondo": "bottom",
+  "fácil": "easy",
+  "hallarlo": "to find it",
+  "hash del bloque 0": "block 0 hash",
+  "hora · dificultad": "time · difficulty",
+  "huella corta = base de la dirección": "short fingerprint = basis of the address",
+  "inaccesible": "inaccessible",
+  "inflación 6,2 %": "inflation 6.2%",
+  "instantáneo": "instant",
+  "liviano": "lightweight",
+  "llave": "key",
+  "límite mensual": "monthly limit",
+  "media": "medium",
+  "misma huella": "same fingerprint",
+  "muy difícil": "very hard",
+  "más comisiones": "more fees",
+  "máx. 2013: 1.242": "2013 high: 1,242",
+  "no hay vuelta": "no going back",
+  "nodo completo": "full node",
+  "nunca movidos": "never moved",
+  "oficial": "official",
+  "opcional": "optional",
+  "oro": "gold",
+  "pago": "payment",
+  "pago A": "payment A",
+  "pago B": "payment B",
+  "para recibir": "to receive",
+  "piso: US$ 6.000": "floor: US$6,000",
+  "privacidad": "privacy",
+  "pública": "public",
+  "raíz de Merkle": "Merkle root",
+  "rechazado": "rejected",
+  "reservas 100 %": "100% reserves",
+  "récord": "record",
+  "récord 2011: 31,91": "2011 record: 31.91",
+  "récord 2017": "2017 record",
+  "récord: 126.198": "record: 126,198",
+  "récord: 73.000+": "record: 73,000+",
+  "salida": "output",
+  "se solapa": "overlaps",
+  "secreta": "secret",
+  "sellos de": "time",
+  "semilla": "seed",
+  "sin vuelta": "no way back",
+  "son de ellos)": "are theirs)",
+  "son tuyas)": "are yours)",
+  "stablecoins &gt; 50 %": "stablecoins &gt; 50%",
+  "subsidio": "subsidy",
+  "subsidio + comisiones": "subsidy + fees",
+  "tasas": "rates",
+  "tiempo": "stamps",
+  "tienda": "store",
+  "tope: 21 millones": "cap: 21 million",
+  "tu billetera": "your wallet",
+  "tu pago": "your payment",
+  "verificarlo": "to verify it",
+  "versión · nonce": "version · nonce",
+  "vuelto": "change",
+  "y de sostener": "and to maintain",
+  "~95 % ya minado": "~95% already mined",
+  "~US$ 1.000": "~US$1,000",
+  "~US$ 10.944": "~US$10,944",
+  "~US$ 13.000": "~US$13,000",
+  "~US$ 15.480": "~US$15,480",
+  "~US$ 16.000": "~US$16,000",
+  "~US$ 17.900": "~US$17,900",
+  "~US$ 266": "~US$266",
+  "~US$ 29.000": "~US$29,000",
+  "~US$ 3.869": "~US$3,869",
+  "~US$ 46.000": "~US$46,000",
+  "~US$ 50": "~US$50",
+  "~US$ 6.200": "~US$6,200",
+  "~US$ 664": "~US$664",
+  "¡Es un": "It's a",
+  "¡lleno!": "full!",
+  "¡no caben!": "they don't fit!",
+  "¡ojo!": "careful!",
+  "¡otra huella!": "a different fingerprint!",
+  "¡pero ojo con los riesgos!": "but mind the risks!",
+  "¡se rompió el enlace!": "the link broke!",
+  "¿quién paga la seguridad?": "who pays for security?",
+  "¿y ahora?": "now what?",
+  "−14 % en un día": "−14% in one day",
+  "−15 % en un día": "−15% in one day",
+  "−50 % en 16 días": "−50% in 16 days",
+  "−76 % en un año": "−76% in one year",
+  "−96 % en un día": "−96% in one day",
+  "≈ 0,52 M": "≈ 0.52 M",
+  "≈ 1,1 M": "≈ 1.1 M",
+  "≈ 1,49 M": "≈ 1.49 M",
+  "≈ 1,75 M": "≈ 1.75 M",
+  "≈ 114 años": "≈ 114 years",
+  "≈ 3,7 M · ~18 %": "≈ 3.7 M · ~18%",
+  "✓ firma válida": "✓ valid signature",
+  "✓ fondos separados": "✓ separate funds",
+  "✓ identidad": "✓ identity",
+  "✓ igual": "✓ same",
+  "✓ inscripción": "✓ registration",
+  "✓ patrimonio mínimo": "✓ minimum capital",
+  "✗ alterado": "✗ altered",
+  "0,3": "0.3",
+  "0,7": "0.7",
+  "0,99": "0.99",
+  "1,00": "1.00",
+  "1,56": "1.56",
+  "1.290+": "1,290+",
+  "10 %": "10%",
+  "100.000+": "100,000+",
+  "119.756": "119,756",
+  "12,5": "12.5",
+  "17,6 %": "17.6%",
+  "18 %": "18%",
+  "184.467.440.737": "184,467,440,737",
+  "19.783": "19,783",
+  "19.850": "19,850",
+  "2,5 %": "2.5%",
+  "28.527": "28,527",
+  "3,1": "3.1",
+  "3,125": "3.125",
+  "3.747": "3,747",
+  "4,3 %": "4.3%",
+  "45 %": "45%",
+  "45,4 %": "45.4%",
+  "5,2 %": "5.2%",
+  "50 %": "50%",
+  "51 %": "51%",
+  "6,25": "6.25",
+  "7 %": "7%",
+  "7,1 %": "7.1%",
+  "75 %": "75%",
+  "78,50": "78.50",
+  "8 %": "8%",
+  "8,3 %": "8.3%",
+  "850.000": "850,000",
+  "87,5 %": "87.5%",
+  "9,5 %": "9.5%",
+  "~16.000": "~16,000",
+  "~42.255": "~42,255",
+  "~5.400": "~5,400",
+  "~60.000": "~60,000",
+  "~84.400": "~84,400",
+  "… 9.999": "… 9,999",
+  "−36 %": "−36%",
+  "−85 %": "−85%",
+  "≈ 45 %": "≈ 45%"
+ }
+}

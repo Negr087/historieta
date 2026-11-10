@@ -5,6 +5,7 @@ import { finalizeEvent, generateSecretKey, getPublicKey, verifyEvent } from 'nos
 import * as nip19 from 'nostr-tools/nip19';
 import { getZapEndpoint, getSatoshisAmountFromBolt11 } from 'nostr-tools/nip57';
 import { bytesToHex, hexToBytes } from 'nostr-tools/utils';
+import { t } from './i18n.js';
 
 export const pool = new SimplePool();
 export { getSatoshisAmountFromBolt11, verifyEvent };
@@ -23,7 +24,7 @@ function borrar(k) { try { localStorage.removeItem(k); } catch (e) { /* nada */ 
 export function hayExtension() { return typeof window !== 'undefined' && !!window.nostr; }
 
 export async function entrarConExtension() {
-  if (!window.nostr) throw new Error('No encontré una extensión de Nostr (Alby, nos2x, Keys.band…).');
+  if (!window.nostr) throw new Error(t('No encontré una extensión de Nostr (Alby, nos2x, Keys.band…).'));
   const pubkey = await window.nostr.getPublicKey();
   firmante = { tipo: 'extension', pubkey, firmar: (t) => window.nostr.signEvent(t) };
   guardar('historieta.modo', 'extension');
@@ -44,8 +45,9 @@ export function crearClaveLocal() {
 }
 
 export function importarNsec(nsec) {
-  const d = nip19.decode(nsec.trim());
-  if (d.type !== 'nsec') throw new Error('Eso no es una nsec.');
+  let d = null;
+  try { d = nip19.decode(nsec.trim()); } catch (e) { /* no es bech32 */ }
+  if (d?.type !== 'nsec') throw new Error(t('Eso no es una nsec.'));
   guardar(CLAVE_LOCAL, bytesToHex(d.data));
   guardar('historieta.modo', 'local');
   return usarClave(d.data);
@@ -80,9 +82,9 @@ export function salir() {
 export function sesion() { return firmante; }
 
 export async function firmar(plantilla) {
-  if (!firmante) throw new Error('Primero entrá con tu identidad de Nostr.');
+  if (!firmante) throw new Error(t('Primero entrá con tu identidad de Nostr.'));
   const ev = await firmante.firmar({ ...plantilla, pubkey: firmante.pubkey });
-  if (!verifyEvent(ev)) throw new Error('La firma no es válida.');
+  if (!verifyEvent(ev)) throw new Error(t('La firma no es válida.'));
   return ev;
 }
 
@@ -156,9 +158,9 @@ export function repartir(vineta, total) {
 export async function pedirFactura({ relays, vineta, destinatario, sats, comentario }) {
   await cargarPerfiles(relays, [destinatario]);
   const meta = perfil(destinatario)?.evento;
-  if (!meta) throw new Error(`${nombreCorto(destinatario)} no tiene perfil con dirección Lightning.`);
+  if (!meta) throw new Error(t('{nombre} no tiene perfil con dirección Lightning.', { nombre: nombreCorto(destinatario) }));
   const endpoint = await getZapEndpoint(meta);
-  if (!endpoint) throw new Error(`${nombreCorto(destinatario)} no tiene una dirección Lightning que acepte zaps.`);
+  if (!endpoint) throw new Error(t('{nombre} no tiene una dirección Lightning que acepte zaps.', { nombre: nombreCorto(destinatario) }));
   const msats = sats * 1000;
   const plantilla = {
     kind: 9734,
@@ -177,7 +179,7 @@ export async function pedirFactura({ relays, vineta, destinatario, sats, comenta
   const url = `${endpoint}${endpoint.includes('?') ? '&' : '?'}amount=${msats}&nostr=${encodeURIComponent(JSON.stringify(pedido))}`;
   const r = await fetch(url);
   const j = await r.json();
-  if (!j.pr) throw new Error(j.reason || 'El servidor Lightning no devolvió una factura.');
+  if (!j.pr) throw new Error(j.reason || t('El servidor Lightning no devolvió una factura.'));
   return { factura: j.pr, destinatario, sats };
 }
 
