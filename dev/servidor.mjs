@@ -61,11 +61,14 @@ wss.on('connection', (ws) => {
 });
 
 // ---- App ----
+const TIPOS = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.png': 'image/png', '.webmanifest': 'application/manifest+json' };
 http.createServer((req, res) => {
-  const archivo = 'dist/index.html';
-  if (!existsSync(archivo)) { res.writeHead(500); res.end('Falta dist/index.html: corré npm run build'); return; }
-  res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' });
-  res.end(readFileSync(archivo));
+  // Los archivos de dist/ (sw.js, manifest, íconos); cualquier otra ruta es la app.
+  const nombre = decodeURIComponent(new URL(req.url, 'http://x').pathname).replace(/^\/+/, '');
+  const pedido = /^[\w.-]+$/.test(nombre) && existsSync(`dist/${nombre}`) ? `dist/${nombre}` : 'dist/index.html';
+  if (!existsSync(pedido)) { res.writeHead(500); res.end('Falta dist/index.html: corré npm run build'); return; }
+  res.writeHead(200, { 'content-type': TIPOS[pedido.slice(pedido.lastIndexOf('.'))] || 'application/octet-stream', 'cache-control': 'no-cache' });
+  res.end(readFileSync(pedido));
 }).listen(PUERTO_APP);
 
 console.log(`App:   http://localhost:${PUERTO_APP}`);

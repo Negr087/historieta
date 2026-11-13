@@ -2,7 +2,8 @@
 // Uso: node build.mjs   (o npm run build)
 
 import { build } from 'esbuild';
-import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, copyFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { EN } from './src/i18n.js';
 
 // Avisa si algún texto de la interfaz no tiene traducción al inglés.
@@ -38,4 +39,11 @@ const html = readFileSync('src/index.html', 'utf8')
 
 mkdirSync('dist', { recursive: true });
 writeFileSync('dist/index.html', html);
+
+// PWA: manifest, íconos y service worker (con un hash del build para renovar el caché).
+const version = createHash('sha256').update(html).digest('hex').slice(0, 12);
+for (const f of readdirSync('src/pwa')) {
+  if (f === 'sw.js') writeFileSync('dist/sw.js', readFileSync('src/pwa/sw.js', 'utf8').replace("'historieta-VERSION'", `'historieta-${version}'`));
+  else copyFileSync(`src/pwa/${f}`, `dist/${f}`);
+}
 console.log(`dist/index.html listo (${Math.round(html.length / 1024)} KB)`);

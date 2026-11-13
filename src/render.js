@@ -79,6 +79,22 @@ export function svgDeArte(arte, alt) {
   return svg;
 }
 
+/**
+ * Los globos de una viñeta como <p class="bubble">. Si son dos, van uno de cada
+ * lado (si vinieron del mismo, el segundo pasa al otro) y más angostos.
+ */
+export function globosDe(globos) {
+  const dos = globos.filter((g) => g.t).slice(0, 2);
+  const lados = dos.map((g) => (g.lado === 'izq' ? 'izq' : 'der'));
+  if (lados.length === 2 && lados[0] === lados[1]) lados[1] = lados[0] === 'izq' ? 'der' : 'izq';
+  return dos.map((g, i) => {
+    const p = document.createElement('p');
+    p.className = `bubble ${lados[i] === 'izq' ? 'b-l' : 'b-r'}${dos.length === 2 ? ' angosto' : ''}`;
+    p.textContent = g.t;
+    return p;
+  });
+}
+
 /** Arma el <figure> de una viñeta, con el mismo estilo que la historieta original. */
 export function figuraVineta(v, { pie } = {}) {
   const fig = document.createElement('figure');
@@ -100,12 +116,7 @@ export function figuraVineta(v, { pie } = {}) {
   const art = document.createElement('div');
   art.className = 'art';
   art.appendChild(svgDeArte(v.arte, v.alt));
-  for (const g of v.globos) {
-    const p = document.createElement('p');
-    p.className = `bubble ${g.lado === 'izq' ? 'b-l' : 'b-r'}`;
-    p.textContent = g.t;
-    art.appendChild(p);
-  }
+  for (const p of globosDe(v.globos)) art.appendChild(p);
   fig.append(cap, art);
   if (pie) fig.appendChild(pie);
   return fig;

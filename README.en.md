@@ -13,12 +13,15 @@ The app is available in Spanish and English. The code, comments and scripts are 
 | `src/config.js` | Relays, curators and zap split. **The first thing to edit.** |
 | `src/model.js` | Event format (panels, canon, zaps) and how the trunk is built. Used by the app and the script. |
 | `src/render.js` | Draws panels and filters the SVG coming from relays (allowlist: no scripts, links or external images). |
-| `src/editor.js` | The editor: pieces, signs, text, drag, resize, flip. |
-| `src/nostr.js` | Relays, identity (NIP-07 extension or local key), publishing, profiles and zaps (NIP-57 with splits). |
+| `src/editor.js` | The editor: pieces, signs, text, drag, resize, flip, and remix (turning a panel's drawing back into layers). |
+| `src/nostr.js` | Relays, identity (NIP-07 extension, NIP-46 remote signer or local key), publishing, profiles, `nevent` links and zaps (NIP-57 with splits). |
 | `src/app.js` | The app: reader, branches, editor, curation, settings. |
 | `src/i18n.js` | Interface languages (Spanish and English). The Spanish text is the key. |
 | `src/genesis-en.json` | English translation of the genesis: captions, speech bubbles, descriptions, chapters and the text drawn in the art. |
 | `src/genesis.json`, `src/library.svg` | The 254 panels and the piece library, extracted from the original comic. |
+| `src/library-extra.svg` | New pieces for the editor (lightning bolt, block, node, pickaxe, phone, key, document, pizza, chart). `extraer.py` doesn't touch it. |
+| `src/pwa/` | Manifest, service worker and icons: the app can be installed and read offline. |
+| `test/` | Tests for the model (trunk, zaps, moderation, genesis ids) and the SVG filter. `npm test`. |
 | `scripts/extraer.py` | Regenerates `genesis.json` and `library.svg` from the original HTML. |
 | `scripts/publicar-genesis.mjs` | Signs and publishes the genesis to the relays. |
 | `scripts/reenviar-genesis.mjs` | Copies the already-signed genesis to relays that don't have it (no nsec needed). |
@@ -29,7 +32,8 @@ The app is available in Spanish and English. The code, comments and scripts are 
 
 ```bash
 npm install
-npm run build          # generates dist/index.html (a single file, ~540 KB)
+npm run build          # generates dist/ (a ~630 KB index.html with everything inside, plus the PWA files)
+npm test               # tests for the model and the SVG filter
 ```
 
 ### 1. Try it locally, without touching public relays
@@ -72,7 +76,7 @@ npm run reenviar                    # fills in the missing ones
 
 ### 4. Deploy the app
 
-It's a single static file (`dist/index.html`):
+It's static files (`dist/`): `index.html` with everything inside, plus the manifest, service worker and icons to install it as an app:
 
 - **Vercel**: `vercel.json` is ready (build `npm run build`, output `dist`).
 - **Umbrel node**: any container that serves static files, for example
@@ -84,10 +88,13 @@ It's a single static file (`dist/index.html`):
 
 | Kind | What it is | Key tags |
 | --- | --- | --- |
-| `8333` | A panel (regular event: not editable) | `t=historieta-bitcoin`, `capitulo` (chapter), `e … anterior` (the panel it continues), `genesis` (originals only), `r` (sources), `zap` (split), `L`/`l` (language, community panels only), `alt` |
+| `8333` | A panel (regular event: not editable) | `t=historieta-bitcoin`, `capitulo` (chapter), `e … anterior` (the panel it continues), `p` (its author, so they get notified), `genesis` (originals only), `r` (sources), `zap` (split), `L`/`l` (language, community panels only), `alt` |
 | `1985` | Canon label (NIP-32), signed by a curator | `L=historieta-bitcoin`, `l=canon`, `e` (the panel), `k=8333` |
-| `5` | A curator removes a panel from the canon (deletes its label) | `e` (the label), `k=1985` |
-| `9735` | Zap receipts (NIP-57): they add up the sats for each panel | `e` (the panel) |
+| `1985` | Moderation label, signed by a curator: hides a panel or an author | `L=historieta-bitcoin`, `l=oculta`, `e` (the panel) or `p` (the author), `k=8333` |
+| `5` | A curator revokes one of their labels (canon or hidden), or someone removes their like | `e` (the label or reaction), `k` |
+| `7` | Like (NIP-25): one per person counts | `e` (the panel), `p`, `k=8333` |
+| `9735` | Zap receipts (NIP-57): they add up the sats for each panel | `e` (the panel), `p`, `bolt11`, `description` |
+| `1` | Note sharing a panel in any client | `q` (the panel, NIP-18), `p`, `t` |
 
 A panel's content is JSON (the field names are in Spanish):
 
@@ -110,7 +117,25 @@ A panel's content is JSON (the field names are in Spanish):
 2. It continues with panels that a curator labeled as canon **and** that continue the last panel of the trunk. If there are several, the one labeled first wins.
 3. Everything else is a branch hanging off the panel it continues. Branches can be followed and continued without limit.
 
-Since the genesis panels have a fixed date, the app computes their ids by itself: it can read the original comic even if the relays don't respond.
+Since the genesis panels have a fixed date, the app computes their ids by itself: it can read the original comic even if the relays don't respond. A test (`npm test`) checks that those ids don't change by accident.
+
+Every panel has its own link (`#nevent1…`, with id, author and a relay). If the panel wasn't part of the initial load, the app fetches it by id, along with the previous panel and its continuations. Each panel's view shows a **branch map**: which trunk panel it comes from and what follows, up to three levels deep. Each author has a page at `#npub1…` with their panels, how many are on the trunk, sats and likes.
+
+### Moderation
+
+Anyone can publish, so curators can **hide** a panel or **mute** an author (including their future panels) from Branches or from a panel's view. It's a NIP-32 label (`l=oculta`) just like canon, and it can be undone from Curation ("What you hid"), which publishes a kind 5. The genesis and the curators can't be hidden.
+
+In Branches, the **"Only known people"** filter shows only people the curators follow (their contact list, kind 3) or who already have a panel on the trunk. The choice is saved in the browser.
+
+### Identity
+
+There are three ways to sign: a browser extension (NIP-07: Alby, nos2x…), a **remote signer** (NIP-46: Amber on your phone scanning a `nostrconnect://` QR code, nsec.app or a `bunker://` link), or a key created in the browser for people new to Nostr. With a remote signer, the key never touches the page.
+
+### The editor
+
+Library pieces (Sat and the genesis objects, plus the new ones from `library-extra.svg`), signs, text, boxes and circles; up to two speech bubbles (one on each side); undo and redo (Ctrl+Z / Ctrl+Shift+Z); and keyboard controls (arrows to move, Shift to move further, + and − to resize, Delete to remove). With **"Use this drawing"** any panel goes into the editor as a starting point: whatever the editor knows how to build comes back as an editable piece, and the rest as a block you can move, scale and flip.
+
+After publishing, **Share** opens: the link, the phone's share menu and a kind 1 note quoting the panel, so it shows up on Damus, Primal and the rest.
 
 ### Languages
 
@@ -122,4 +147,6 @@ The app starts in the browser's language (Spanish if it's neither Spanish nor En
 
 ### Zaps
 
-Community panels carry `zap` tags (NIP-57) with the split from `config.js`: by default, 80% for the panel's author and 20% for the comic's creator. The app requests one invoice per share. With a WebLN wallet (Alby) it pays automatically; otherwise it shows the QR codes. Without logging in, the zap is anonymous.
+Community panels carry `zap` tags (NIP-57) with the split from `config.js`: by default, 80% for the panel's author and 20% for the comic's creator. The app requests one invoice per share; if someone in the split has no Lightning address, their share goes to the others. With a WebLN wallet (Alby) it pays automatically; otherwise it shows the QR codes. Without logging in, the zap is anonymous.
+
+A zap receipt only counts if it's valid: correct signatures on the receipt and the request, same panel and same recipient, an invoice amount matching the request, a recipient who is paid for that panel, and signed by that recipient's Lightning server (the `nostrPubkey` of their LNURL). That way nobody can make up sats by publishing fake receipts. Canon candidates are sorted by sats, then by likes.

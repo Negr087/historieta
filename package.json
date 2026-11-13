@@ -7,16 +7,19 @@
     "dev": "node dev/servidor.mjs",
     "extraer": "python3 scripts/extraer.py",
     "genesis": "node scripts/publicar-genesis.mjs",
-    "reenviar": "node scripts/reenviar-genesis.mjs"
+    "reenviar": "node scripts/reenviar-genesis.mjs",
+    "test": "node --test test/*.test.mjs"
   },
   "author": "seba.dev",
   "license": "MIT",
   "dependencies": {
+    "@scure/base": "^2.0.0",
     "nostr-tools": "^2.26.0",
     "qrcode": "^1.5.4"
   },
   "devDependencies": {
     "esbuild": "^0.28.2",
+    "happy-dom": "^21.0.4",
     "ws": "^8.22.1"
   },
   "type": "module"

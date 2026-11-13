@@ -11,13 +11,16 @@ La historieta original (23 capítulos, 254 viñetas) pasa a ser el **génesis** 
 | `src/config.js` | Relays, curadores y reparto de zaps. **Lo primero que tenés que editar.** |
 | `src/model.js` | El formato de los eventos (viñetas, canon, zaps) y cómo se arma el tronco. Lo usan la app y el script. |
 | `src/render.js` | Dibuja viñetas y filtra el SVG que llega de los relays (lista blanca: sin scripts, links ni imágenes externas). |
-| `src/editor.js` | El editor: piezas, carteles, textos, arrastrar, agrandar, espejar. |
-| `src/nostr.js` | Relays, identidad (extensión NIP-07 o clave local), publicación, perfiles y zaps (NIP-57 con reparto). |
+| `src/editor.js` | El editor: piezas, carteles, textos, arrastrar, agrandar, espejar, y el remix (pasar el dibujo de una viñeta a capas). |
+| `src/nostr.js` | Relays, identidad (extensión NIP-07, firmante remoto NIP-46 o clave local), publicación, perfiles, enlaces `nevent` y zaps (NIP-57 con reparto). |
 | `src/app.js` | La app: lector, ramas, editor, curaduría, ajustes. |
 | `src/i18n.js` | Idiomas de la interfaz (español e inglés). El texto en español es la clave. |
 | `src/genesis-en.json` | Traducción al inglés del génesis: epígrafes, globos, descripciones, capítulos y los textos dibujados en el arte. |
 | `src/genesis-arreglos.json` | Arreglos de cómo se muestran 34 epígrafes del génesis en español (la negrita va en medio de la frase). |
 | `src/genesis.json`, `src/library.svg` | Las 254 viñetas y la biblioteca de piezas, extraídas de la historieta original. |
+| `src/library-extra.svg` | Piezas nuevas para el editor (rayo, bloque, nodo, pico, celular, llave, documento, pizza, gráfico). `extraer.py` no lo toca. |
+| `src/pwa/` | Manifest, service worker e íconos: la app se puede instalar y leer sin conexión. |
+| `test/` | Pruebas del modelo (tronco, zaps, moderación, ids del génesis) y del filtro de SVG. `npm test`. |
 | `scripts/extraer.py` | Vuelve a generar `genesis.json` y `library.svg` desde el HTML original. |
 | `scripts/publicar-genesis.mjs` | Firma y publica el génesis en los relays. |
 | `scripts/reenviar-genesis.mjs` | Copia el génesis ya firmado a los relays que no lo tienen (sin nsec). |
@@ -28,7 +31,8 @@ La historieta original (23 capítulos, 254 viñetas) pasa a ser el **génesis** 
 
 ```bash
 npm install
-npm run build          # genera dist/index.html (un solo archivo, ~540 KB)
+npm run build          # genera dist/ (index.html de ~630 KB con todo adentro, más los archivos de la PWA)
+npm test               # pruebas del modelo y del filtro de SVG
 ```
 
 ### 1. Probar en tu máquina, sin tocar los relays públicos
@@ -71,7 +75,7 @@ npm run reenviar                    # completa los que faltan
 
 ### 4. Subir la app
 
-Es un solo archivo estático (`dist/index.html`):
+Son archivos estáticos (`dist/`): `index.html` con todo adentro, más el manifest, el service worker y los íconos para instalarla como app:
 
 - **Vercel**: `vercel.json` ya está listo (build `npm run build`, salida `dist`). Apuntá tu subdominio con Cloudflare como siempre.
 - **Nodo Umbrel**: cualquier contenedor que sirva archivos estáticos, por ejemplo
@@ -83,10 +87,13 @@ Es un solo archivo estático (`dist/index.html`):
 
 | Kind | Qué es | Tags importantes |
 | --- | --- | --- |
-| `8333` | Una viñeta (evento regular: no se edita) | `t=historieta-bitcoin`, `capitulo`, `e … anterior` (la viñeta que continúa), `genesis` (sólo las originales), `r` (fuentes), `zap` (reparto), `L`/`l` (idioma, sólo las de la comunidad), `alt` |
+| `8333` | Una viñeta (evento regular: no se edita) | `t=historieta-bitcoin`, `capitulo`, `e … anterior` (la viñeta que continúa), `p` (su autor, para que le llegue el aviso), `genesis` (sólo las originales), `r` (fuentes), `zap` (reparto), `L`/`l` (idioma, sólo las de la comunidad), `alt` |
 | `1985` | Etiqueta de canon (NIP-32), firmada por un curador | `L=historieta-bitcoin`, `l=canon`, `e` (la viñeta), `k=8333` |
-| `5` | Un curador saca una viñeta del canon (borra su etiqueta) | `e` (la etiqueta), `k=1985` |
-| `9735` | Recibos de zap (NIP-57): suman los sats de cada viñeta | `e` (la viñeta) |
+| `1985` | Etiqueta de moderación, firmada por un curador: oculta una viñeta o a un autor | `L=historieta-bitcoin`, `l=oculta`, `e` (la viñeta) o `p` (el autor), `k=8333` |
+| `5` | Un curador revoca una etiqueta suya (canon u oculta), o alguien saca su me gusta | `e` (la etiqueta o la reacción), `k` |
+| `7` | Me gusta (NIP-25): cuenta una por persona | `e` (la viñeta), `p`, `k=8333` |
+| `9735` | Recibos de zap (NIP-57): suman los sats de cada viñeta | `e` (la viñeta), `p`, `bolt11`, `description` |
+| `1` | Nota para compartir una viñeta en cualquier cliente | `q` (la viñeta, NIP-18), `p`, `t` |
 
 El contenido de una viñeta es JSON:
 
@@ -109,7 +116,25 @@ El contenido de una viñeta es JSON:
 2. Sigue con las viñetas que un curador etiquetó como canon **y** que continúan a la última del tronco. Si hay varias, gana la etiquetada primero.
 3. Todo lo demás es una rama que cuelga de la viñeta que continúa. Las ramas se pueden seguir y continuar sin límite.
 
-Como las viñetas del génesis tienen fecha fija, la app calcula sus ids sola: lee la historieta original aunque los relays no respondan.
+Como las viñetas del génesis tienen fecha fija, la app calcula sus ids sola: lee la historieta original aunque los relays no respondan. Una prueba (`npm test`) verifica que esos ids no cambien sin querer.
+
+Cada viñeta tiene su enlace (`#nevent1…`, con id, autor y un relay). Si la viñeta no vino en la carga inicial, la app la busca por id, junto con la anterior y sus continuaciones. La vista de cada viñeta muestra un **mapa de ramas**: de qué viñeta del tronco sale y qué sigue, hasta tres niveles. Cada autor tiene su página en `#npub1…`, con sus viñetas, cuántas están en el tronco, sats y me gusta.
+
+### Moderación
+
+Cualquiera puede publicar, así que los curadores pueden **ocultar** una viñeta o **silenciar** a un autor (también sus viñetas futuras) desde Ramas o desde la vista de cada viñeta. Es una etiqueta NIP-32 (`l=oculta`) igual que el canon, y se deshace desde Curaduría ("Lo que ocultaste"), que publica un kind 5. El génesis y los curadores no se pueden ocultar.
+
+En Ramas, el filtro **"Sólo gente conocida"** muestra sólo a quienes siguen los curadores (su lista de contactos, kind 3) o a quienes ya tienen una viñeta en el tronco. Queda guardado en el navegador.
+
+### Identidad
+
+Para firmar hay tres caminos: una extensión del navegador (NIP-07: Alby, nos2x…), un **firmante remoto** (NIP-46: Amber en el celular escaneando un QR `nostrconnect://`, nsec.app o un enlace `bunker://`), o una clave creada en el navegador para quien todavía no usa Nostr. Con el firmante remoto, la clave nunca pasa por la página.
+
+### El editor
+
+Piezas de la biblioteca (Sat y los objetos del génesis, más las nuevas de `library-extra.svg`), carteles, textos, cajas y círculos; hasta dos globos (van uno de cada lado); deshacer y rehacer (Ctrl+Z / Ctrl+Shift+Z); y teclado (flechas para mover, Shift para mover más, + y − para el tamaño, Supr para borrar). Con **"Usar este dibujo"** cualquier viñeta pasa al editor como punto de partida: lo que el editor sabe armar vuelve como pieza editable y el resto como un bloque que se puede mover, escalar y espejar.
+
+Después de publicar, se abre **Compartir**: el enlace, el menú de compartir del celular y una nota kind 1 que cita la viñeta, para que se vea en Damus, Primal y el resto.
 
 ### Idiomas
 
@@ -121,12 +146,13 @@ La app está en español y en inglés. Arranca en el idioma del navegador (si no
 
 ### Zaps
 
-Las viñetas de la comunidad llevan tags `zap` (NIP-57) con el reparto de `config.js`: por defecto, 80 % para quien la hizo y 20 % para la creadora de la historieta. La app pide una factura por cada parte. Si tenés una billetera WebLN (Alby), paga sola; si no, muestra los QR. Sin sesión, el zap sale anónimo.
+Las viñetas de la comunidad llevan tags `zap` (NIP-57) con el reparto de `config.js`: por defecto, 80 % para quien la hizo y 20 % para la creadora de la historieta. La app pide una factura por cada parte; si alguien del reparto no tiene dirección Lightning, su parte va a los demás. Si tenés una billetera WebLN (Alby), paga sola; si no, muestra los QR. Sin sesión, el zap sale anónimo.
+
+Un recibo de zap sólo suma si es válido: firmas correctas del recibo y del pedido, misma viñeta y mismo destinatario, el monto de la factura igual al pedido, un destinatario que cobra esa viñeta, y firmado por el servidor Lightning de ese destinatario (el `nostrPubkey` de su LNURL). Así nadie puede inventar sats publicando recibos truchos. Las candidatas a canon se ordenan por sats y después por me gusta.
 
 ## Ideas para seguir
 
 - Que **Sat tenga su propia npub** y publique cada viñeta nueva del tronco como una nota común con imagen, para que aparezca en Primal, Damus y Amethyst.
-- **Piezas nuevas** propuestas por ilustradores como eventos, que los curadores aprueban para la biblioteca.
+- **Piezas propuestas por ilustradores** como eventos, que los curadores aprueban para la biblioteca (hoy se suman en `library-extra.svg`).
 - **Traducciones de la comunidad**: que cualquiera pueda traducir una viñeta como un evento aparte, y sumar más idiomas.
 - **Edición impresa** del canon de cada año.
-- Firmar con **NIP-46** (bunker) además de la extensión.

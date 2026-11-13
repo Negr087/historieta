@@ -8,6 +8,7 @@
 //                ["t", "historieta-bitcoin"]            para encontrarlas
 //                ["capitulo", "<n>", "<título>"]        a qué capítulo pertenece
 //                ["e", "<id>", "<relay>", "anterior"]   la viñeta que esta continúa
+//                ["p", "<pubkey>", "<relay>"]           su autor, para que le llegue el aviso
 //                ["genesis", "<i>"]                     sólo las 254 originales, en orden
 //                ["r", "<url>"]                         fuentes (una por tag)
 //                ["zap", "<pubkey>", "<relay>", "<peso>"]  reparto de zaps (NIP-57)
@@ -16,6 +17,10 @@
 //   kind 1985  Etiqueta de canon (NIP-32), firmada por un curador:
 //                ["L", "historieta-bitcoin"], ["l", "canon", "historieta-bitcoin"],
 //                ["e", "<id de la viñeta>"], ["k", "8333"]
+//   kind 1985  Etiqueta de moderación, firmada por un curador: oculta una viñeta o a un autor.
+//                ["L", "historieta-bitcoin"], ["l", "oculta", "historieta-bitcoin"],
+//                ["e", "<id de la viñeta>"] y/o ["p", "<pubkey del autor>"], ["k", "8333"]
+//   kind 5     Un curador revoca una etiqueta suya (canon u oculta).
 //   kind 9735  Recibos de zap (NIP-57): suman los sats de cada viñeta.
 
 import { getEventHash } from 'nostr-tools/pure';
@@ -73,6 +78,8 @@ export function plantillaVineta(v, { anterior, capitulo, fuentes = [], zaps = []
   const tags = [['t', TAG_T]];
   if (capitulo) tags.push(['capitulo', String(capitulo.n), capitulo.titulo || '']);
   if (anterior) tags.push(['e', anterior.id, anterior.relay || '', 'anterior']);
+  // Menciona al autor de la viñeta anterior: le llega la notificación en su cliente de Nostr.
+  if (anterior?.pubkey && /^[0-9a-f]{64}$/.test(anterior.pubkey)) tags.push(['p', anterior.pubkey, anterior.relay || '']);
   for (const url of fuentes) if (url) tags.push(['r', url]);
   for (const z of zaps) tags.push(['zap', z.pubkey, z.relay || '', String(z.peso)]);
   if (idioma) tags.push(['L', 'ISO-639-1'], ['l', idioma, 'ISO-639-1']);
@@ -124,9 +131,43 @@ export function plantillaCanon(vineta) {
   };
 }
 
+/** Etiqueta para ocultar una viñeta ({ vineta }) o todo lo de un autor ({ pubkey }). */
+export function plantillaOcultar({ vineta, pubkey }) {
+  const tags = [['L', ETIQUETA_NS], ['l', 'oculta', ETIQUETA_NS]];
+  if (vineta) tags.push(['e', vineta.id]);
+  if (pubkey) tags.push(['p', pubkey]);
+  tags.push(['k', String(KIND_VINETA)]);
+  return { kind: KIND_ETIQUETA, created_at: Math.floor(Date.now() / 1000), tags, content: '' };
+}
+
 // --- Lectura ---
+/** Una URL http(s) con dominio (sirve para las fuentes). */
+export function esUrl(s) {
+  try { const u = new URL(String(s || '')); return /^https?:$/.test(u.protocol) && !!u.hostname; } catch (e) { return false; }
+}
+
 export function tag(ev, nombre) {
   return ev.tags.find((t) => t[0] === nombre);
+}
+
+/** Tipo de una etiqueta NIP-32 de la historieta: 'canon', 'oculta' o null. */
+export function tipoEtiqueta(ev) {
+  return ev.tags.find((t) => t[0] === 'l' && t[2] === ETIQUETA_NS)?.[1] || null;
+}
+
+/** Viñetas y autores que ocultaron los curadores (las etiquetas ya vienen filtradas). */
+export function moderacion(etiquetas, curadores) {
+  const curSet = new Set(curadores);
+  const ocultas = new Set();
+  const silenciados = new Set();
+  for (const e of etiquetas) {
+    if (!curSet.has(e.pubkey) || tipoEtiqueta(e) !== 'oculta') continue;
+    for (const t of e.tags) {
+      if (t[0] === 'e' && t[1]) ocultas.add(t[1]);
+      if (t[0] === 'p' && t[1] && !curSet.has(t[1])) silenciados.add(t[1]); // a un curador no se lo silencia
+    }
+  }
+  return { ocultas, silenciados };
 }
 
 /** Convierte un evento kind 8333 en una viñeta, o null si no es válida. */
@@ -154,7 +195,7 @@ export function leerVineta(ev) {
     anterior: ant ? ant[1] : null,
     genesis: gen ? parseInt(gen[1], 10) : null,
     idioma: (ev.tags.find((t) => t[0] === 'l' && t[2] === 'ISO-639-1' && /^[a-z]{2}$/.test(t[1] || '')) || [])[1] || null,
-    fuentes: ev.tags.filter((t) => t[0] === 'r' && /^https?:\/\//.test(t[1] || '')).map((t) => t[1]).slice(0, 5),
+    fuentes: ev.tags.filter((t) => t[0] === 'r' && esUrl(t[1])).map((t) => t[1]).slice(0, 5),
     zaps: ev.tags.filter((t) => t[0] === 'zap' && /^[0-9a-f]{64}$/.test(t[1] || ''))
       .map((t) => ({ pubkey: t[1], relay: t[2], peso: Math.max(0, parseFloat(t[3]) || 0) })),
     evento: ev,
@@ -176,7 +217,7 @@ export function armarHistoria({ vinetas, etiquetas, curadores }) {
   // Primera fecha de canon por viñeta (sólo etiquetas de curadores, sin revocar).
   const canonDesde = new Map();
   for (const e of etiquetas) {
-    if (!curSet.has(e.pubkey)) continue;
+    if (!curSet.has(e.pubkey) || tipoEtiqueta(e) !== 'canon') continue;
     const id = tag(e, 'e')?.[1];
     if (!id) continue;
     if (!canonDesde.has(id) || canonDesde.get(id) > e.created_at) canonDesde.set(id, e.created_at);
@@ -207,16 +248,49 @@ export function armarHistoria({ vinetas, etiquetas, curadores }) {
   return { porId, hijos, tronco, enTronco, canonDesde, cola: tronco[tronco.length - 1] || null };
 }
 
-/** Sats de un recibo de zap (kind 9735), leyendo el monto de la factura. */
-export function satsDeRecibo(ev, satsDeFactura) {
-  const b = tag(ev, 'bolt11')?.[1];
-  if (b) {
-    try { return satsDeFactura(b); } catch (e) { /* sigue */ }
-  }
-  try {
-    const req = JSON.parse(tag(ev, 'description')?.[1] || '{}');
-    const a = req.tags?.find((t) => t[0] === 'amount')?.[1];
-    if (a) return Math.floor(parseInt(a, 10) / 1000);
-  } catch (e) { /* nada */ }
-  return 0;
+/** Reacción (kind 7, NIP-25): la viñeta es el último tag "e". "-" es un no me gusta. */
+export function leerReaccion(ev) {
+  if (!ev || ev.kind !== 7) return null;
+  const es = ev.tags.filter((t) => t[0] === 'e' && /^[0-9a-f]{64}$/.test(t[1] || ''));
+  if (!es.length) return null;
+  return { vineta: es.at(-1)[1], pubkey: ev.pubkey, positiva: ev.content.trim() !== '-', created_at: ev.created_at, id: ev.id };
+}
+
+export function plantillaReaccion(vineta, relay = '') {
+  return {
+    kind: 7, created_at: Math.floor(Date.now() / 1000), content: '+',
+    tags: [['e', vineta.id, relay], ['p', vineta.pubkey], ['k', String(KIND_VINETA)]],
+  };
+}
+
+/**
+ * Valida un recibo de zap (kind 9735) según NIP-57, sin red:
+ * - el recibo y el pedido (kind 9734, en "description") tienen firmas válidas,
+ * - los dos apuntan a la misma viñeta y al mismo destinatario,
+ * - el monto de la factura coincide con el pedido (si el pedido dice monto),
+ * - el destinatario es uno de los que cobran esa viñeta (su reparto, o su autor).
+ * Falta un chequeo que sí necesita red: que `proveedor` (quien firmó el recibo)
+ * sea el `nostrPubkey` del LNURL del destinatario. Eso lo hace la app.
+ * Devuelve { vineta, destinatario, proveedor, sats, factura } o null.
+ */
+export function validarRecibo(ev, { vinetas, verificar, satsDeFactura }) {
+  if (!ev || ev.kind !== 9735 || !verificar(ev)) return null;
+  const id = tag(ev, 'e')?.[1];
+  const destinatario = tag(ev, 'p')?.[1];
+  const factura = tag(ev, 'bolt11')?.[1];
+  if (!id || !destinatario || !factura) return null;
+  const v = vinetas.get(id);
+  if (!v) return null;
+  const cobran = v.zaps.length ? v.zaps.map((z) => z.pubkey) : [v.pubkey];
+  if (!cobran.includes(destinatario)) return null;
+  let pedido;
+  try { pedido = JSON.parse(tag(ev, 'description')?.[1] || ''); } catch (e) { return null; }
+  if (!pedido || pedido.kind !== 9734 || !Array.isArray(pedido.tags) || !verificar(pedido)) return null;
+  if (tag(pedido, 'e')?.[1] !== id || tag(pedido, 'p')?.[1] !== destinatario) return null;
+  let msats;
+  try { msats = satsDeFactura(factura) * 1000; } catch (e) { return null; }
+  if (!(msats > 0)) return null;
+  const pedidoMsats = tag(pedido, 'amount')?.[1];
+  if (pedidoMsats && parseInt(pedidoMsats, 10) !== msats) return null;
+  return { vineta: id, destinatario, proveedor: ev.pubkey, sats: Math.floor(msats / 1000), factura };
 }

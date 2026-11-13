@@ -29,6 +29,9 @@
   border-radius: 999px; padding: 2px 10px; font-size: 15px; font-family: var(--font-hand);
 }
 .pie button.zap { background: var(--orange); color: var(--ink); border-color: var(--ink); }
+.pie a.quien { text-decoration: none; }
+.pie a.quien:hover, .pie a.quien:focus-visible { text-decoration: underline; color: var(--text); }
+.pie button.like.sel { background: var(--p4); color: var(--ink); border-color: var(--ink); }
 .pie button:focus-visible, .nav button:focus-visible, .chip:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
 .sello { font-family: var(--font-display); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; padding: 2px 7px; border-radius: 4px; border: 2px solid var(--ink); color: var(--ink); }
 .sello.canon { background: #7CE0A3; }
@@ -49,7 +52,8 @@
 /* Editor */
 .editor { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, 1fr); gap: 16px; align-items: start; }
 @media (max-width: 900px) { .editor { grid-template-columns: minmax(0, 1fr); } }
-.lienzo .panel { position: sticky; top: 0; }
+.lienzo .panel { position: sticky; top: 0; z-index: 1; }
+.lienzo > .fila { margin-top: 10px; }
 .lienzo svg { touch-action: none; user-select: none; }
 .lienzo .capa { cursor: grab; }
 .lienzo .capa.sel { outline: none; }
@@ -108,3 +112,38 @@ input[type="range"] { width: 100%; accent-color: var(--orange); }
 
 /* Botón de idioma (ES / EN) */
 .nav .idioma { min-width: 2.8em; }
+
+/* Moderación y filtro de ramas */
+.tarjeta .meta .moderar { margin-left: auto; display: flex; gap: 6px; }
+.filtro { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 16px; margin-top: 10px; cursor: pointer; }
+.filtro input { width: 18px; height: 18px; accent-color: var(--orange); }
+.ocultas { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.ocultas li { display: flex; gap: 10px; align-items: center; justify-content: space-between; flex-wrap: wrap; border: 3px solid var(--frame); padding: 8px 12px; background: var(--sheet); }
+
+/* Aviso del firmante remoto (NIP-46) */
+.autorizar { position: fixed; left: 50%; bottom: 84px; transform: translateX(-50%); z-index: 60; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; justify-content: center; max-width: calc(100vw - 32px); background: var(--sheet); color: var(--text); border: 3px solid var(--frame); box-shadow: 4px 4px 0 var(--shadow); padding: 10px 14px; }
+
+/* Dos globos: uno de cada lado */
+.bubble.angosto { max-width: 47%; min-width: 0; }
+
+/* Mapa de ramas */
+.mapa { margin-top: 14px; font-size: 15px; }
+.mapa h3 { margin: 0 0 6px; }
+.mapa ul, .mapa ol { list-style: none; margin: 0; padding: 0; }
+.mapa .desde { display: flex; flex-direction: column; gap: 2px; margin-bottom: 2px; }
+.mapa .desde li + li, .mapa .arbol > li { padding-left: 0; }
+.mapa .arbol ul { margin-left: 9px; padding-left: 12px; border-left: 2px solid var(--muted); }
+.mapa li { margin: 2px 0; }
+.mapa .nodo, .mapa .mas {
+  display: inline-flex; align-items: center; gap: 6px; max-width: 100%;
+  border: 0; background: none; color: var(--text); font: inherit; font-family: var(--font-hand);
+  padding: 2px 4px; cursor: pointer; text-align: left;
+}
+.mapa .nodo:hover, .mapa .mas:hover { text-decoration: underline; }
+.mapa .nodo:focus-visible, .mapa .mas:focus-visible { outline: 3px solid var(--blue); outline-offset: 1px; }
+.mapa .punto { flex: none; width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--ink); background: var(--p5); }
+.mapa .nodo.canon .punto { background: #7CE0A3; }
+.mapa .nodo.candidata .punto { background: var(--yellow); }
+.mapa .nodo.actual { font-weight: 700; background: var(--p2); color: var(--ink); border-radius: 6px; }
+.mapa .mas { color: var(--muted); font-size: 14px; }
+.mapa small { color: var(--muted); }

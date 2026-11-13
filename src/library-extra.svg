@@ -1,0 +1,56 @@
+<!-- Piezas sumadas para el editor (no vienen de la historieta original).
+     scripts/extraer.py regenera library.svg, no este archivo. Mismo estilo:
+     tinta #1b1838, trazo 3,5–4, colores planos de la paleta. -->
+
+    <symbol id="o-bolt" viewBox="0 0 60 90">
+      <path d="M38 4 L8 50 H28 L21 86 L53 36 H33 L42 4 Z" fill="#FFD84D" stroke="#1b1838" stroke-width="4" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="o-block" viewBox="0 0 90 90" stroke="#1b1838" stroke-width="4" stroke-linejoin="round">
+      <path d="M45 6 L84 26 L45 46 L6 26 Z" fill="#FFA82E"/>
+      <path d="M6 26 L45 46 V86 L6 66 Z" fill="#F7931A"/>
+      <path d="M84 26 L45 46 V86 L84 66 Z" fill="#C96F00"/>
+      <path d="M53 56 L76 44 M53 66 L76 54 M53 76 L70 67" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <g transform="translate(25 57) scale(.32) skewY(27)"><use href="#btc-w"/></g>
+    </symbol>
+    <symbol id="o-node" viewBox="0 0 80 110" stroke="#1b1838" stroke-linejoin="round">
+      <rect x="8" y="4" width="64" height="102" rx="8" fill="#D9D6EA" stroke-width="4"/>
+      <g fill="#fff" stroke-width="3"><rect x="16" y="14" width="48" height="22" rx="3"/><rect x="16" y="44" width="48" height="22" rx="3"/><rect x="16" y="74" width="48" height="22" rx="3"/></g>
+      <path d="M23 25 H44 M23 55 H44 M23 85 H44" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="55" cy="25" r="4" fill="#7CE0A3" stroke-width="2.5"/>
+      <circle cx="55" cy="55" r="4" fill="#7CE0A3" stroke-width="2.5"/>
+      <circle cx="55" cy="85" r="4" fill="#F7931A" stroke-width="2.5"/>
+    </symbol>
+    <symbol id="o-pick" viewBox="0 0 100 100" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 90 L62 24" stroke="#1b1838" stroke-width="13" fill="none"/>
+      <path d="M18 90 L62 24" stroke="#A86B32" stroke-width="7" fill="none"/>
+      <path d="M22 26 Q56 2 94 28 L88 36 Q58 18 30 34 Z" fill="#D9D6EA" stroke="#1b1838" stroke-width="4"/>
+    </symbol>
+    <symbol id="o-phone" viewBox="0 0 60 100" stroke="#1b1838" stroke-linejoin="round">
+      <rect x="6" y="4" width="48" height="92" rx="9" fill="#3B3768" stroke-width="4"/>
+      <rect x="11" y="14" width="38" height="64" rx="3" fill="#fff" stroke-width="3"/>
+      <path d="M33 22 L20 46 H29 L26 66 L41 40 H32 L36 22 Z" fill="#FFD84D" stroke-width="2.5"/>
+      <circle cx="30" cy="87" r="4" fill="#D9D6EA" stroke-width="2.5"/>
+    </symbol>
+    <symbol id="o-key" viewBox="0 0 110 50" stroke="#1b1838" stroke-width="4" stroke-linejoin="round">
+      <path d="M38 20 H104 V30 H100 V44 H91 V30 H87 V40 H78 V30 H38 Z" fill="#FFD84D"/>
+      <circle cx="23" cy="25" r="17" fill="#FFD84D"/>
+      <circle cx="18" cy="25" r="6" fill="#fff"/>
+    </symbol>
+    <symbol id="o-paper" viewBox="0 0 72 92" stroke="#1b1838" stroke-linejoin="round">
+      <path d="M6 4 H50 L66 20 V88 H6 Z" fill="#fff" stroke-width="4"/>
+      <path d="M50 4 V20 H66" fill="#EDEBFF" stroke-width="3.5"/>
+      <path d="M16 32 H42 M16 44 H56 M16 54 H56 M16 64 H50 M16 74 H56" stroke="#9A96C8" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="51" cy="31" r="6" fill="#F7931A" stroke-width="2.5"/>
+    </symbol>
+    <symbol id="o-pizza" viewBox="0 0 90 84" stroke="#1b1838" stroke-linejoin="round">
+      <path d="M6 14 Q45 -2 84 14 L45 80 Z" fill="#FFD84D" stroke-width="4"/>
+      <path d="M7 14 Q45 -2 83 14" fill="none" stroke="#C96F00" stroke-width="9" stroke-linecap="round"/>
+      <path d="M6 14 Q45 -2 84 14" fill="none" stroke-width="4"/>
+      <g fill="#E5484D" stroke-width="2.5"><circle cx="34" cy="26" r="7"/><circle cx="56" cy="30" r="6"/><circle cx="44" cy="50" r="6"/></g>
+    </symbol>
+    <symbol id="o-chart" viewBox="0 0 100 80" stroke="#1b1838" stroke-linejoin="round" stroke-linecap="round">
+      <rect x="4" y="4" width="92" height="72" rx="6" fill="#fff" stroke-width="4"/>
+      <path d="M16 18 V64 H86" fill="none" stroke="#9A96C8" stroke-width="3"/>
+      <polyline points="20,56 34,48 46,52 60,34 72,38 84,16" fill="none" stroke="#2BA36B" stroke-width="5"/>
+      <path d="M76 14 H86 V24" fill="none" stroke="#2BA36B" stroke-width="5"/>
+    </symbol>
